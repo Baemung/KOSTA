@@ -78,3 +78,29 @@ int* get_CD(int a){
     ptr[0] = idx;
     return ptr;
 }
+
+void ASCII_Table(){
+    printf("\n\t\t\t\tASCII CODE TABLE\n");
+    for(int i = 0; i <= 4; i++){
+        printf("-----------------");
+    }
+    printf("\n|   Dec   Hc   Char  |");
+    printf("   Dec   Hc   Char  |");
+    printf("   Dec   Hc   Char  |");
+    printf("   Dec   Hc   Char  |\n");
+    for(int i = 0; i < 32; i++){
+        for(int i = 0; i <= 4; i++){
+            printf("-----------------");
+        }
+        printf("\n|");
+        for(int j = i; j <= i+96; j += 32){
+            if(j < 32 || j == 127){
+                printf(" %4d   %3x    **   |", j, j);
+            }
+            else{
+                printf(" %4d   %3x  %3c    |", j, j, j);
+            }
+        }
+        printf("\n");
+    }
+}

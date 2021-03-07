@@ -6,6 +6,7 @@ int get_Min(int *arr, int n);
 int* int_Sort(int *arr, int n);
 int get_GCD(int a, int b);
 int* get_CD(int a);
+void ASCII_Table();
 
 typedef struct{
     char name[20];
@@ -258,6 +259,7 @@ int main()
 /*  열거형
 
     week w;
-*/
+*/  
+    ASCII_Table();
     return 0;
 }
