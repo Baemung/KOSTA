@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int get_Fib(int a){
     int f[101];
@@ -46,7 +48,7 @@ void swap(int *a, int *b){
 int* int_Sort(int *arr, int n){
     for(int i = 0; i < n-1; i++){
         for(int j = i+1; j < n; j++){
-            if(arr[i] > arr[j]){
+            if(*(arr+i) > *(arr+j)){
                 swap(arr+i, arr+j); // swap(&arr[i], &arr[j])과 동일
             }
         }
@@ -80,20 +82,22 @@ int* get_CD(int a){
 }
 
 void ASCII_Table(){
+    int i, j;
     printf("\n\t\t\t\tASCII CODE TABLE\n");
-    for(int i = 0; i <= 4; i++){
+    for(i = 0; i <= 4; i++){
         printf("-----------------");
     }
     printf("\n|   Dec   Hc   Char  |");
-    printf("   Dec   Hc   Char  |");
-    printf("   Dec   Hc   Char  |");
-    printf("   Dec   Hc   Char  |\n");
-    for(int i = 0; i < 32; i++){
-        for(int i = 0; i <= 4; i++){
+    for(i = 0; i < 3; i++){
+        printf("  Dec    Hc   Char  |");
+    }
+    printf("\n");
+    for(i = 0; i < 32; i++){
+        for(j = 0; j <= 4; j++){
             printf("-----------------");
         }
         printf("\n|");
-        for(int j = i; j <= i+96; j += 32){
+        for(j = i; j <= i+96; j += 32){
             if(j < 32 || j == 127){
                 printf(" %4d   %3x    **   |", j, j);
             }
@@ -103,4 +107,54 @@ void ASCII_Table(){
         }
         printf("\n");
     }
+    for(i = 0; i <= 4; i++){
+        printf("-----------------");
+    }
+    printf("\n");
+}
+
+
+int* Prompt(const char *pt, int *ret){
+    char buffer[254];
+    printf("%s", pt);
+    fgets(buffer, sizeof(buffer), stdin);
+    *ret = atoi(buffer);
+    return ret;
+}
+
+/*
+    함수명 : int chrPos(const char *str, char chr);
+    return type : int : 파라미터 chr의 위치, 없다면 -1.
+    input : char *str : 대상 문자열.
+            char chr  : 찾을 문자.
+    기능 : str으로 전달된 문자열 중에서 chr 문자의 위치를 검색하여 해당 위치를 반환(zero base).
+          검색되지 않으면, -1을 반환.
+*/
+int chrPos_v1(const char *str, char chr){
+    int i, j, k;
+    i = 0;
+    while (*(str+i)){
+        if(*(str+i++) == chr){
+            return i-1;
+        }
+    }
+    return -1;
+}
+
+int chrPos_v2(const char *str, char chr){
+    int i, j, k;
+    for(i = 0; *(str+i); i++){
+        if(*(str+i) == chr){
+            return i;
+        }
+    }
+    return -1;
+}
+
+int* strPos(const char *str1, const char *str2, int *idx){
+    int i, j, k, p;
+    for(i = 0; i < strlen(str2); i++){
+        *(idx+i) = chrPos_v1(str1, *(str2+i));
+    }
+    return idx;
 }

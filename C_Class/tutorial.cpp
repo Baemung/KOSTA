@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "MyHeader.h"
 
 int get_Min(int *arr, int n);
@@ -7,6 +8,10 @@ int* int_Sort(int *arr, int n);
 int get_GCD(int a, int b);
 int* get_CD(int a);
 void ASCII_Table();
+int* Prompt(const char *pt, int *ret);
+int chrPos_v1(const char *str, char chr);
+int chrPos_v2(const char *str, char chr);
+int* strPos(const char *str1, const char *str2);
 
 typedef struct{
     char name[20];
@@ -228,7 +233,6 @@ int main()
     printf("%c\n", *(char *)ptr); //void 포인터를 char 포인터로 변환한 뒤 역참조
 */
 /*  구조체 : 독립적인 데이터 공간, 구조체 배열, 구조체 포인터
-
     struct person p[5] = {};
     for(int i = 0; i < 5; i++){
         printf("name : %s\n", p[i].name);
@@ -253,13 +257,48 @@ int main()
     printf("age : %d\n\n", pMan->age);
 */
 /*  공용체(유니언) : 메모리 공간 공유
-
     union data;
 */
 /*  열거형
-
     week w;
-*/  
+*/ 
+/*  아스키코드 테이블
     ASCII_Table();
+*/
+/*  표준 입출력
+    char str1[30];
+    char str2[10];
+
+    fputs("Input the string of number : ", stdout);
+    fgets(str2, sizeof(str2), stdin);
+    strcat(str1, str2);
+    printf("생성된 문자열 : %s", str1);
+    printf("변환된 숫자열 : %d", atoi(str1));
+*/
+/*  문자열 처리 함수
+    int a, b, *c;
+    Prompt("A를 입력하세요. : ", &a);
+    c = Prompt("B를 입력하세요. : ", &b);
+    printf("A : %d\nB : %d\nC : %d\n", a, b, *c);
+    if(&b == c){
+        printf("same");
+    }
+    else{
+        printf("not");
+    }
+*/
+    char str1[100];
+    char str2[20];
+    int idx[20];
+
+    fputs("str1을 입력하세요 : ", stdout);
+    fgets(str1, sizeof(str1), stdin);
+    fputs("str2를 입력하세요 : ", stdout);
+    fgets(str2, sizeof(str2), stdin);
+
+    int* ch = strPos(str1, str2, idx);
+    for(int i = 0; i < strlen(str2)-1; i++){
+        printf("%c 의 위치 : %d\n", *(str2+i), *(ch+i));
+    }
     return 0;
 }
