@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/uio.h>
 #include "MyHeader.h"
+
+#define NUM 2
 
 int get_Min(int *arr, int n);
 int* int_Sort(int *arr, int n);
@@ -15,9 +18,13 @@ int* strPos(const char *str1, const char *str2);
 
 typedef struct{
     char name[20];
-    char phone[20];
-    int age;
-} person;
+    int kor;
+    int math;
+    int eng;
+    int rank;
+    int mean;
+    int sum;
+} Score;
 
 typedef union{
     int d1;
@@ -287,6 +294,11 @@ int main()
         printf("not");
     }
 */
+/*  포인터 매개변수로 주고 리턴받기
+    scanf와 fgets의 차이 : scanf는 여러 타입의 자료형을 입력받음.
+                        fgets은 문자열만 쭉 받아서 캐릭터 버퍼에 때려넣고 되돌려줌.
+                        stdin은 특별한 케이스이고, 보통은 파일데이터를 입출력 한다.
+
     char str1[100];
     char str2[20];
     int idx[20];
@@ -300,5 +312,102 @@ int main()
     for(int i = 0; i < strlen(str2)-1; i++){
         printf("%c 의 위치 : %d\n", *(str2+i), *(ch+i));
     }
+*/
+/*  파일 입출력
+    파일 입출력을 하기위해서는 데이터를 주고 받을 수 있는 스트림을 생성해야한다.
+    FILE* fopen(const char* filename, const char* mode)
+    FILE* : file manager; 성공시 파일 포인터 반환, 실패시 NULL 포인터 반환.
+    mode : 파일 접근 모드 + 데이터 입,출력 모드
+    r(read;읽기), w(write;쓰기, 기존 파일 내용 날려버림), a(append;추가, 기존 파일 뒤에 내용 추가)
+    r+, w+, a+ (데이터 입출력 모드를 추가 지정 '+' 자리에는 t와 b가 올 수 있다.)
+    t:텍스트 모드(디폴트), b:바이너리 모드
+    CR(\r) : Cariage Return(커서를 가장 앞으로 리턴)
+    LF(\n) : Line Feed(줄바꿈)
+
+    파일 구조체
+    - 데이터 입,출력 함수 호출
+    - 위치 정보 참조
+    - 파일의 끝 확인
+
+    파일의 종결
+    int fclose(FILE* stream) : 정상적으로 종류되면 0을 리턴 (꼭 해줘야 함)
+
+    FILE *fa = fopen("test.txt", "wb");
+    char buf1[20];
+    char buf2[20];
+    scanf("%s", buf1);
+    fprintf(fa, "%s", buf1);
+    fclose(fa);
+
+    FILE *fr = fopen("test.txt", "rb");
+    fscanf(fr, "%s", buf2);
+    printf("%s", buf2);
+    fclose(fr);
+*/
+/*  파일 구조체로 성적입력받고 파일에 저장, 파일에서 성적읽어서 출력
+*/
+    FILE *fw = fopen("score.txt", "wb");
+    Score *s = (Score*)malloc(sizeof(Score)*NUM);
+    int i, j, k;
+
+    printf("성적을 입력합니다.\n");
+    for (i=0; i < NUM; i++){
+        printf("이름을 입력하세요 : "); scanf("%s", s[i].name);
+        printf("국어성적을 입력하세요 : "); scanf("%d", &s[i].kor);
+        printf("수학성적을 입력하세요 : "); scanf("%d", &s[i].math);
+        printf("영어성적을 입력하세요 : "); scanf("%d", &s[i].eng); 
+        printf("\n");
+        s[i].sum = s[i].kor+s[i].math+s[i].eng;
+        s[i].mean = s[i].sum/3;
+    }
+
+    char temp_name[20];
+    int temp_kor;
+    int temp_math;
+    int temp_eng;
+    int temp_sum;
+    int temp_mean;
+    for(i = 0; i < NUM-1; i++){   
+       for(j = i; j < NUM; j++){   
+            if(s[i].sum < s[j].sum){
+                strcpy (temp_name, s[j].name);
+                temp_kor = s[j].kor;
+                temp_math = s[j].math;
+                temp_eng = s[j].eng;
+                temp_sum = s[j].sum;
+                temp_mean = s[j].mean;
+
+                strcpy (s[j].name, s[i].name);
+                s[j].kor = s[i].kor;
+                s[j].math = s[i].math;
+                s[j].eng = s[i].eng;
+                s[j].sum = s[i].sum;
+                s[j].mean = s[i].mean;
+
+                strcpy (s[i].name, temp_name);
+                s[i].kor = temp_kor;
+                s[i].math = temp_math;
+                s[i].eng = temp_eng;
+                s[i].sum = temp_sum;
+                s[i].mean = temp_mean;
+            }
+        }   
+    }
+
+    for (i = 0; i < NUM; i++){
+        s[i].rank = i+1;
+        fprintf(fw, "%s %d %d %d %d %d %d\r\n", s[i].name, s[i].kor, s[i].math, s[i].eng, s[i].sum, s[i].mean, s[i].rank);
+    }
+    fclose(fw);
+
+    char name[20];
+    int kor, math, eng, sum, mean, rank;
+    FILE *fr = fopen("score.txt", "rb");
+    printf(" 이름   국어 수학 영어 총점 평균 등수\n");
+    for(i = 0; i < NUM; i++){
+        fscanf(fr,"%s %d %d %d %d %d %d\r\n", name, &kor, &math, &eng, &sum, &mean, &rank);
+        printf("%s   %d   %d   %d  %d   %d   %d\n", name, kor, math, eng, sum, mean, rank);
+    }
+    fclose(fr);
     return 0;
 }
