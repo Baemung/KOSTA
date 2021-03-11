@@ -14,13 +14,13 @@ int get_Fib(int a){
 }
 
 void get_type(char k){
-    if(k >= '0' && int(k) <= '9'){
+    if(k >= '0' && (int)(k) <= '9'){
         printf("숫자");
     }
-    else if(k >= 'A' && int(k) <= 'Z'){
+    else if(k >= 'A' && (int)(k) <= 'Z'){
         printf("대문자");
     }
-    else if(k >= 'a' && int(k) <= 'z'){
+    else if(k >= 'a' && (int)(k) <= 'z'){
         printf("소문자");
     }
     else{

@@ -14,7 +14,7 @@ void ASCII_Table();
 int* Prompt(const char *pt, int *ret);
 int chrPos_v1(const char *str, char chr);
 int chrPos_v2(const char *str, char chr);
-int* strPos(const char *str1, const char *str2);
+int* strPos(const char *str1, const char *str2, int *idx);
 
 typedef struct{
     char name[20];
