@@ -1,57 +1,86 @@
 #include <iostream>
 #include <math.h>
 
+#define PI 3.14
+
 using namespace std;
 
 class Point{
 private:
-public:
     int x;
     int y;
+public:
+    Point(int x, int y){
+        this->x = x;
+        this->y = y;;
+    }
+    void SetX(int x){
+        this->x = x;;
+    }
+    void SetY(int y){
+        this->y = y;;
+    }
+    int GetX(){
+        return x;
+    }
+    int GetY(){
+        return y;
+    }
+    Point MoveP(int n);
 };
 
-class Rect{
+Point Point::MoveP(int n){
+    Point tempP(x+n, y+n);
+    return tempP;
+}
+
+class Rect: public Point{
 private:
-public:
     Point p1;
     Point p2;
-    int area();
+public:
+    Rect(int x1, int y1, int x2, int y2): Point(x1, y1){
+        this->p1 = Point(x1, y1);
+        this->p2 = Point(x2, y2);
+    }
     double dist(Point pt1, Point pt2);
 };
-
-int Rect::area(){
-    return abs(p1.x-p2.x)*abs(p1.y-p2.y);
-}
 
 double Rect::dist(Point pt1, Point pt2){
     return sqrt((pt1.x-pt2.x)*(pt1.x-pt2.x)+(pt1.y-pt2.y)*(pt1.y-pt2.y));
 }
 
-class RectEx: public Rect{
-    /*
-    class Rect의 모든 내용이 class RectEx안에 있다라고 생각하면 됨.
-    */
-private:
-   Point p3 = {p1.x, p2.y};
-   Point p4 = {p2.x, p1.y};
+//Circle클래스 정의, 멤버 함수 구현
+//멤버함수: 지름(diameter), 둘레(Clen), 면적(area)
+class Circle: public Rect{
+private: 
+    double r;
 public:
-   double tLength();
+    Circle(Point pt1, Point pt2) : Rect(pt1,pt2){
+        r = dist(pt1, pt2)/2;
+    }
+    double diameter();
+    double Clen();
+    double area();
 };
 
-double RectEx::tLength(){
-    double sl1 = dist(p1,p3), sl2 = dist(p1,p4), sl3 = dist(p2,p3), sl4 = dist(p2,p4);
-    return sl1+sl2+sl3+sl4;
+double Circle::diameter(){
+    return 2*r;
+}
+
+double Circle::Clen(){
+    return 2*PI*r;
+}
+
+double Circle::area(){
+    return PI*r*r;
 }
 
 int main(){
-    RectEx r;
-
-    cout<<fixed; 
-    cout.precision(2);
-
-    cout<<"Point A : "; cin>>r.p1.x>>r.p1.y;
-    cout<<"Point B : "; cin>>r.p2.x>>r.p2.y;
-    cout<<"Aria is "<<r.area()<<"\nDistance is "<<r.tLength()<<endl;
-
+    Point p1,p2;
+    cout<<"Point A : "; cin>>p1.x>>p1.y;
+    cout<<"Point B : "; cin>>p2.x>>p2.y;
+    Circle c(p1,p2);
+    cout<<"지름 : "<<c.diameter()<<"\n둘레 : "<<c.Clen()<<"\n넓이 : "<<c.area()<<endl;
     return 0;
 }
