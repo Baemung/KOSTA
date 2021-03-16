@@ -48,7 +48,7 @@ BOOL CTestDLG::OnInitDialog()
 	// TODO:  여기에 추가 초기화 작업을 추가합니다.
 
 	CFont f;
-	f.CreateFontW(36,0,0,0,0,0,0,0,0,0,0,0,0,TEXT("Arial"));
+	f.CreateFont(36,0,0,0,0,0,0,0,0,0,0,0,0,TEXT("Arial"));
 	/*GetDlgItem(IDC_STATIC_Text1)->SetWindowTextW(L"안녕하세요.");
 	GetDlgItem(IDC_STATIC_Text1)->SetFont(&f);*/
 	cStaticTest.SetFont(&f);
@@ -62,8 +62,8 @@ void CTestDLG::OnClickedBtnTest()
 {	
 	//CEdit e;0
 	CString buf, lenBuf;
-	GetDlgItem(IDC_EDIT2)->GetWindowTextW(buf);
-	GetDlgItem(IDC_EDIT3)->SetWindowTextW(buf.MakeUpper());
+	GetDlgItem(IDC_EDIT2)->GetWindowText(buf);
+	GetDlgItem(IDC_EDIT3)->SetWindowText(buf.MakeUpper());
 	lenBuf.Format(_T("%d"), buf.GetLength());
-	GetDlgItem(IDC_EDIT4)->SetWindowTextW(lenBuf);
+	GetDlgItem(IDC_EDIT4)->SetWindowText(lenBuf);
 }

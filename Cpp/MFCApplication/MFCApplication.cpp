@@ -12,6 +12,8 @@
 #include "MFCApplicationDoc.h"
 #include "MFCApplicationView.h"
 #include "CTestDLG.h"
+#include "CDlgTest.h"
+#include "CDrawTest.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -28,6 +30,8 @@ BEGIN_MESSAGE_MAP(CMFCApplicationApp, CWinApp)
 	// 표준 인쇄 설정 명령입니다.
 	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinApp::OnFilePrintSetup)
 	ON_COMMAND(ID_MNU_TEST, &CMFCApplicationApp::OnMnuTest)
+	ON_COMMAND(ID_MNU_Test1, &CMFCApplicationApp::OnMnuTest1)
+	ON_COMMAND(ID_MNU_Draw, &CMFCApplicationApp::OnMnuDraw)
 END_MESSAGE_MAP()
 
 
@@ -159,6 +163,7 @@ protected:
 // 구현입니다.
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
 };
 
 CAboutDlg::CAboutDlg() noexcept : CDialogEx(IDD_ABOUTBOX)
@@ -180,10 +185,20 @@ void CMFCApplicationApp::OnAppAbout()
 	aboutDlg.DoModal();
 }
 
-// CMFCApplicationApp 메시지 처리기
-
 void CMFCApplicationApp::OnMnuTest()
 {
 	CTestDLG dlg;
 	dlg.DoModal();
+}
+
+void CMFCApplicationApp::OnMnuTest1()
+{
+	CDlgTest dlg;
+	dlg.DoModal();
+}
+
+void CMFCApplicationApp::OnMnuDraw()
+{
+	CDrawTest *dlg = new CDrawTest();
+	dlg->DoModal();
 }

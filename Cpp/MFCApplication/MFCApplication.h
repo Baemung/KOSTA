@@ -29,6 +29,9 @@ public:
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
 	afx_msg void OnMnuTest();
+	afx_msg void OnMnuTest1();
+//	afx_msg void OnUpdateMnuTest1(CCmdUI* pCmdUI);
+	afx_msg void OnMnuDraw();
 };
 
 extern CMFCApplicationApp theApp;
