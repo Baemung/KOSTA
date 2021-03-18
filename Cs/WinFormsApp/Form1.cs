@@ -22,10 +22,10 @@ namespace WinFormsApp
         private void btn1_Click(object sender, EventArgs e)
         {
             if (status) {
-                btn1.Text = "OFF";
+                btn1.Text = "ON";
             }
             else {
-                btn1.Text = "ON";
+                btn1.Text = "OFF";
             }
             status = !status;
         }
@@ -68,9 +68,10 @@ namespace WinFormsApp
         private void btnCall_Click(object sender, EventArgs e)
         {
             Form2 frm2 = new Form2();
-            DialogResult ret = frm2.ShowDialog();
-            if (ret == DialogResult.Cancel) return;
-            tbf2.Text = $"cb1 : {frm2.cb1.Text}\r\ncb2 : {frm2.cb2.Text}\r\ncb3 : {frm2.cb3.Text}";
+            if (frm2.ShowDialog() == DialogResult.Cancel) return;
+            tbf2.Text = $"cb1 : {frm2.cb1.Text}\r\n" +
+                        $"cb2 : {frm2.cb2.Text}\r\n" +
+                        $"cb3 : {frm2.cb3.Text}";
         }
     }
 }
