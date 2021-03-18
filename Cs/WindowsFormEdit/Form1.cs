@@ -72,7 +72,8 @@ namespace WindowsFormEdit
             tbMemo.Text = sr.ReadToEnd();
             sr.Close();
 
-            Title = myLib.Get_Token(fPath);
+            int idx = myLib.Get_Count('\\', fPath);
+            Title = myLib.Get_Token('\\', fPath, idx);
             this.Text = $"MyEditor - {Title}";
         }
 
@@ -99,7 +100,8 @@ namespace WindowsFormEdit
                         StreamWriter sw = new StreamWriter(fPath);
                         sw.Write(tbMemo.Text);
                         sw.Close();
-                        Title = myLib.Get_Token(fPath);
+                        int idx = myLib.Get_Count('\\', fPath);
+                        Title = myLib.Get_Token('\\', fPath, idx);
                         this.Text = $"MyEditor - {Title}";
                     }
                     else return;
@@ -124,7 +126,8 @@ namespace WindowsFormEdit
             sw.Write(tbMemo.Text);
             sw.Close();
 
-            Title = myLib.Get_Token(fPath);
+            int idx = myLib.Get_Count('\\', fPath);
+            Title = myLib.Get_Token('\\', fPath, idx);
             this.Text = $"MyEditor - {Title}";
             txtChanged = false;
         }
@@ -176,7 +179,7 @@ namespace WindowsFormEdit
         {
             sl1.Text = $"Font Name : {tbMemo.Font.Name}   ";
             sl2.Text = $"Font Style : {tbMemo.Font.Style}   ";
-            sl3.Text = $"Font Size : {tbMemo.Font.SizeInPoints}   ";
+            sl3.Text = $"Font Size : {tbMemo.Font.SizeInPoints}pt   ";
         }
     }
 }

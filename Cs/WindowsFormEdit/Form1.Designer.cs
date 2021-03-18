@@ -143,6 +143,7 @@ namespace WindowsFormEdit
             this.tbMemo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbMemo.Size = new System.Drawing.Size(864, 466);
             this.tbMemo.TabIndex = 4;
+            this.tbMemo.WordWrap = false;
             this.tbMemo.TextChanged += new System.EventHandler(this.tbMemo_TextChanged);
             // 
             // openFileDialog1

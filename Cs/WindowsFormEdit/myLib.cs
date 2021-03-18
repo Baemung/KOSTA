@@ -2,12 +2,19 @@
 {
     public class myLib
     { 
-        public static string Get_Token(string fPath)
+        public static int Get_Count(char deli, string str)
         {
-            string[] spstring = fPath.Split('\\');
-            string fName = spstring[spstring.Length - 1];
+            string[] strs = str.Split(deli);
+            int n = strs.Length;
+            return n - 1;
+        }
+
+        public static string Get_Token(char deli, string str, int index)
+        {
+            string[] strs = str.Split(deli);
+            string ret = strs[index];
             //string fName = openFileDialog1.SafeFileName;
-            return fName;
+            return ret;
         }
     }
 }
