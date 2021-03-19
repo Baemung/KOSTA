@@ -36,6 +36,9 @@ namespace WindowsFormEdit
             this.mnuFileSave = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileSaveas = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.munEditFind = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEditPrev = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEditNext = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuViewFont = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +50,8 @@ namespace WindowsFormEdit
             this.sl1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.sl2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.sl3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.slFind = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mnuEditReplace = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +77,7 @@ namespace WindowsFormEdit
             this.mnuFileSave,
             this.mnuFileSaveas});
             this.munFile.Name = "munFile";
-            this.munFile.Size = new System.Drawing.Size(51, 23);
+            this.munFile.Size = new System.Drawing.Size(51, 20);
             this.munFile.Text = "File(&F)";
             // 
             // munFileNew
@@ -105,16 +110,48 @@ namespace WindowsFormEdit
             // 
             // mnuEdit
             // 
+            this.mnuEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.munEditFind,
+            this.mnuEditPrev,
+            this.mnuEditNext,
+            this.mnuEditReplace});
             this.mnuEdit.Name = "mnuEdit";
-            this.mnuEdit.Size = new System.Drawing.Size(53, 23);
+            this.mnuEdit.ShortcutKeyDisplayString = "[Ctrl + F]";
+            this.mnuEdit.Size = new System.Drawing.Size(53, 20);
             this.mnuEdit.Text = "Edit(&E)";
+            // 
+            // munEditFind
+            // 
+            this.munEditFind.Name = "munEditFind";
+            this.munEditFind.ShortcutKeyDisplayString = "";
+            this.munEditFind.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.munEditFind.Size = new System.Drawing.Size(180, 22);
+            this.munEditFind.Text = "Find(&F)";
+            this.munEditFind.ToolTipText = "현재의 문서에서 특정한 문자열을 찾습니다.";
+            this.munEditFind.Click += new System.EventHandler(this.munEditFind_Click);
+            // 
+            // mnuEditPrev
+            // 
+            this.mnuEditPrev.Name = "mnuEditPrev";
+            this.mnuEditPrev.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.mnuEditPrev.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditPrev.Text = "Prev(&P)";
+            this.mnuEditPrev.Click += new System.EventHandler(this.mnuEditPrev_Click);
+            // 
+            // mnuEditNext
+            // 
+            this.mnuEditNext.Name = "mnuEditNext";
+            this.mnuEditNext.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.mnuEditNext.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditNext.Text = "Next(&N)";
+            this.mnuEditNext.Click += new System.EventHandler(this.mnuEditNext_Click);
             // 
             // mnuView
             // 
             this.mnuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuViewFont});
             this.mnuView.Name = "mnuView";
-            this.mnuView.Size = new System.Drawing.Size(61, 23);
+            this.mnuView.Size = new System.Drawing.Size(61, 20);
             this.mnuView.Text = "View(&V)";
             // 
             // mnuViewFont
@@ -127,7 +164,7 @@ namespace WindowsFormEdit
             // mnuHelp
             // 
             this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(61, 23);
+            this.mnuHelp.Size = new System.Drawing.Size(61, 20);
             this.mnuHelp.Text = "Help(&H)";
             // 
             // tbMemo
@@ -155,7 +192,8 @@ namespace WindowsFormEdit
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sl1,
             this.sl2,
-            this.sl3});
+            this.sl3,
+            this.slFind});
             this.statusStrip1.Location = new System.Drawing.Point(0, 471);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(864, 22);
@@ -176,6 +214,19 @@ namespace WindowsFormEdit
             // 
             this.sl3.Name = "sl3";
             this.sl3.Size = new System.Drawing.Size(0, 17);
+            // 
+            // slFind
+            // 
+            this.slFind.Name = "slFind";
+            this.slFind.Size = new System.Drawing.Size(0, 17);
+            // 
+            // mnuEditReplace
+            // 
+            this.mnuEditReplace.Name = "mnuEditReplace";
+            this.mnuEditReplace.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.mnuEditReplace.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditReplace.Text = "Replace(&R)";
+            this.mnuEditReplace.Click += new System.EventHandler(this.mnuEditReplace_Click);
             // 
             // Form1
             // 
@@ -219,6 +270,11 @@ namespace WindowsFormEdit
         private System.Windows.Forms.ToolStripStatusLabel sl1;
         private System.Windows.Forms.ToolStripStatusLabel sl2;
         private System.Windows.Forms.ToolStripStatusLabel sl3;
+        private System.Windows.Forms.ToolStripMenuItem munEditFind;
+        private System.Windows.Forms.ToolStripMenuItem mnuEditPrev;
+        private System.Windows.Forms.ToolStripMenuItem mnuEditNext;
+        private System.Windows.Forms.ToolStripStatusLabel slFind;
+        private System.Windows.Forms.ToolStripMenuItem mnuEditReplace;
     }
 }
 

@@ -8,3 +8,5 @@ C:\Users\KOSTA\Desktop\KOSTA\Cs\WindowsFormEdit\obj\Debug\WindowsFormEdit.csproj
 C:\Users\KOSTA\Desktop\KOSTA\Cs\WindowsFormEdit\obj\Debug\WindowsFormEdit.csproj.CoreCompileInputs.cache
 C:\Users\KOSTA\Desktop\KOSTA\Cs\WindowsFormEdit\obj\Debug\WindowsFormEdit.exe
 C:\Users\KOSTA\Desktop\KOSTA\Cs\WindowsFormEdit\obj\Debug\WindowsFormEdit.pdb
+C:\Users\KOSTA\Desktop\KOSTA\Cs\WindowsFormEdit\obj\Debug\WindowsFormEdit.FormFind.resources
+C:\Users\KOSTA\Desktop\KOSTA\Cs\WindowsFormEdit\obj\Debug\WindowsFormEdit.FormReplace.resources
