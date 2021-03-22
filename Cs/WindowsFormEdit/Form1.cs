@@ -205,7 +205,6 @@ namespace WindowsFormEdit
             retStr = dlg.fndStr; //찾을 문자열
             if (retStr == string.Empty) return;
             pos = tbMemo.Text.IndexOf(retStr);
-            posList.Clear;
             posList.Add(pos);
             cnt = 1;
             idx = 0;

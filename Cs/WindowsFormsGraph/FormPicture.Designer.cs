@@ -91,7 +91,7 @@ namespace WindowsFormsGraph
             this.mnuDrawCircle,
             this.munDrawArc});
             this.그리기ToolStripMenuItem.Name = "그리기ToolStripMenuItem";
-            this.그리기ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.그리기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.그리기ToolStripMenuItem.Text = "그리기";
             // 
             // munDrawLine
@@ -119,14 +119,14 @@ namespace WindowsFormsGraph
             // mnuErase
             // 
             this.mnuErase.Name = "mnuErase";
-            this.mnuErase.Size = new System.Drawing.Size(138, 22);
+            this.mnuErase.Size = new System.Drawing.Size(180, 22);
             this.mnuErase.Text = "모두 지우기";
             this.mnuErase.Click += new System.EventHandler(this.mnuErase_Click);
             // 
             // munOption
             // 
             this.munOption.Name = "munOption";
-            this.munOption.Size = new System.Drawing.Size(138, 22);
+            this.munOption.Size = new System.Drawing.Size(180, 22);
             this.munOption.Text = "설정";
             this.munOption.Click += new System.EventHandler(this.munOption_Click);
             // 
@@ -145,6 +145,10 @@ namespace WindowsFormsGraph
             this.CanvasDraw.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CanvasDraw_MouseMove);
             this.CanvasDraw.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CanvasDraw_MouseUp);
             this.CanvasDraw.Resize += new System.EventHandler(this.CanvasDraw_Resize);
+            // 
+            // colorDialog
+            // 
+            this.colorDialog.AnyColor = true;
             // 
             // FormPicture
             // 

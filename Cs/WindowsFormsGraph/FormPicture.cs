@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using myLibrary;
 
 namespace WindowsFormsGraph
 {
@@ -14,10 +15,11 @@ namespace WindowsFormsGraph
     {
         Graphics GDC;
         // Default Setting
-        Color color = Color.Black;
-        int thickness = 1;
-        int width = 10;
-        int height = 10;
+        public Color color = Color.Black;
+        string color_Name = "Black";
+        int thickness = 2;
+        int width = 100;
+        int height = 100;
 
         public FormPicture()
         {
@@ -42,7 +44,8 @@ namespace WindowsFormsGraph
             DialogResult ret = fs.ShowDialog();
             if (ret == DialogResult.Cancel) return;
 
-            color = Color.FromName(fs.color);
+            color = fs.color;
+            color_Name = fs.color_Name;
             thickness = fs.thickness;
             width = fs.width;
             height = fs.height;
@@ -84,9 +87,9 @@ namespace WindowsFormsGraph
                 GDC.DrawArc(pp, e.X, e.Y, width, height, 30, 60);
             }
 
-            sl1.Text = $"( X : {e.X},  Y : {e.Y} )   ";
+            sl1.Text = $"   ( X : {e.X},  Y : {e.Y} )   ";
             sl2.Text = $"Mode : {dMode}   ";
-            sl3.Text = $"Option : {color}  size : {thickness} pts   w : {width}  h : {height}";
+            sl3.Text = $"Color : {color_Name}    size : {thickness} pts     w : {width}    h : {height}";
         }
 
         private void CanvasDraw_MouseUp(object sender, MouseEventArgs e)
