@@ -31,12 +31,18 @@ namespace WindowsFormsGraph
         {
             this.components = new System.ComponentModel.Container();
             this.statusBar = new System.Windows.Forms.StatusStrip();
-            this.sl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sl1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sl2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sl3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuDraw = new System.Windows.Forms.ToolStripMenuItem();
-            this.CanvasDraw = new System.Windows.Forms.PictureBox();
+            this.그리기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.munDrawLine = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDrawCircle = new System.Windows.Forms.ToolStripMenuItem();
+            this.munDrawArc = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuErase = new System.Windows.Forms.ToolStripMenuItem();
             this.munOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.CanvasDraw = new System.Windows.Forms.PictureBox();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.statusBar.SuspendLayout();
             this.contextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CanvasDraw)).BeginInit();
@@ -44,38 +50,85 @@ namespace WindowsFormsGraph
             // 
             // statusBar
             // 
-            this.statusBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusBar.Dock = System.Windows.Forms.DockStyle.None;
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sl});
+            this.sl1,
+            this.sl2,
+            this.sl3});
             this.statusBar.Location = new System.Drawing.Point(0, 457);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(37, 22);
+            this.statusBar.Size = new System.Drawing.Size(855, 22);
             this.statusBar.TabIndex = 0;
             this.statusBar.Text = "statusStrip1";
             // 
-            // sl
+            // sl1
             // 
-            this.sl.Name = "sl";
-            this.sl.Size = new System.Drawing.Size(20, 17);
-            this.sl.Text = "-.-";
+            this.sl1.Name = "sl1";
+            this.sl1.Size = new System.Drawing.Size(0, 17);
+            // 
+            // sl2
+            // 
+            this.sl2.Name = "sl2";
+            this.sl2.Size = new System.Drawing.Size(0, 17);
+            // 
+            // sl3
+            // 
+            this.sl3.Name = "sl3";
+            this.sl3.Size = new System.Drawing.Size(0, 17);
             // 
             // contextMenu
             // 
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuDraw,
+            this.그리기ToolStripMenuItem,
             this.mnuErase,
             this.munOption});
             this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(181, 92);
+            this.contextMenu.Size = new System.Drawing.Size(139, 70);
             // 
-            // mnuDraw
+            // 그리기ToolStripMenuItem
             // 
-            this.mnuDraw.Name = "mnuDraw";
-            this.mnuDraw.Size = new System.Drawing.Size(180, 22);
-            this.mnuDraw.Text = "그리기";
+            this.그리기ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.munDrawLine,
+            this.mnuDrawCircle,
+            this.munDrawArc});
+            this.그리기ToolStripMenuItem.Name = "그리기ToolStripMenuItem";
+            this.그리기ToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.그리기ToolStripMenuItem.Text = "그리기";
+            // 
+            // munDrawLine
+            // 
+            this.munDrawLine.Name = "munDrawLine";
+            this.munDrawLine.Size = new System.Drawing.Size(180, 22);
+            this.munDrawLine.Text = "선 그리기";
+            this.munDrawLine.Click += new System.EventHandler(this.mnuDrawLine_Click);
+            // 
+            // mnuDrawCircle
+            // 
+            this.mnuDrawCircle.Name = "mnuDrawCircle";
+            this.mnuDrawCircle.Size = new System.Drawing.Size(180, 22);
+            this.mnuDrawCircle.Text = "원 그리기";
+            this.mnuDrawCircle.Click += new System.EventHandler(this.mnuDrawCircle_Click);
+            // 
+            // munDrawArc
+            // 
+            this.munDrawArc.Enabled = false;
+            this.munDrawArc.Name = "munDrawArc";
+            this.munDrawArc.Size = new System.Drawing.Size(180, 22);
+            this.munDrawArc.Text = "호 그리기";
+            this.munDrawArc.Click += new System.EventHandler(this.mnuDrawArc_Click);
+            // 
+            // mnuErase
+            // 
+            this.mnuErase.Name = "mnuErase";
+            this.mnuErase.Size = new System.Drawing.Size(138, 22);
+            this.mnuErase.Text = "모두 지우기";
+            this.mnuErase.Click += new System.EventHandler(this.mnuErase_Click);
+            // 
+            // munOption
+            // 
+            this.munOption.Name = "munOption";
+            this.munOption.Size = new System.Drawing.Size(138, 22);
+            this.munOption.Text = "설정";
+            this.munOption.Click += new System.EventHandler(this.munOption_Click);
             // 
             // CanvasDraw
             // 
@@ -89,21 +142,9 @@ namespace WindowsFormsGraph
             this.CanvasDraw.TabIndex = 3;
             this.CanvasDraw.TabStop = false;
             this.CanvasDraw.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseDown);
+            this.CanvasDraw.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CanvasDraw_MouseMove);
+            this.CanvasDraw.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CanvasDraw_MouseUp);
             this.CanvasDraw.Resize += new System.EventHandler(this.CanvasDraw_Resize);
-            // 
-            // mnuErase
-            // 
-            this.mnuErase.Name = "mnuErase";
-            this.mnuErase.Size = new System.Drawing.Size(180, 22);
-            this.mnuErase.Text = "모두 지우기";
-            this.mnuErase.Click += new System.EventHandler(this.mnuErase_Click);
-            // 
-            // munOption
-            // 
-            this.munOption.Name = "munOption";
-            this.munOption.Size = new System.Drawing.Size(180, 22);
-            this.munOption.Text = "설정";
-            this.munOption.Click += new System.EventHandler(this.munOption_Click);
             // 
             // FormPicture
             // 
@@ -127,12 +168,18 @@ namespace WindowsFormsGraph
         #endregion
 
         private System.Windows.Forms.StatusStrip statusBar;
-        private System.Windows.Forms.ToolStripStatusLabel sl;
+        private System.Windows.Forms.ToolStripStatusLabel sl1;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
-        private System.Windows.Forms.ToolStripMenuItem mnuDraw;
         private System.Windows.Forms.PictureBox CanvasDraw;
         private System.Windows.Forms.ToolStripMenuItem mnuErase;
         private System.Windows.Forms.ToolStripMenuItem munOption;
+        private System.Windows.Forms.ToolStripStatusLabel sl2;
+        private System.Windows.Forms.ToolStripMenuItem 그리기ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem munDrawLine;
+        private System.Windows.Forms.ToolStripMenuItem mnuDrawCircle;
+        private System.Windows.Forms.ToolStripMenuItem munDrawArc;
+        private System.Windows.Forms.ToolStripStatusLabel sl3;
+        private System.Windows.Forms.ColorDialog colorDialog;
     }
 }
 
