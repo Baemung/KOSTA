@@ -1,0 +1,10 @@
+C:\Users\KOSTA\Desktop\KOSTA\DB\DB Manager\obj\Debug\DB Manager.csprojAssemblyReference.cache
+C:\Users\KOSTA\Desktop\KOSTA\DB\DB Manager\obj\Debug\DB_Manager.DB_Manager.resources
+C:\Users\KOSTA\Desktop\KOSTA\DB\DB Manager\obj\Debug\DB_Manager.Properties.Resources.resources
+C:\Users\KOSTA\Desktop\KOSTA\DB\DB Manager\obj\Debug\DB Manager.csproj.GenerateResource.cache
+C:\Users\KOSTA\Desktop\KOSTA\DB\DB Manager\obj\Debug\DB Manager.csproj.CoreCompileInputs.cache
+C:\Users\KOSTA\Desktop\KOSTA\DB\DB Manager\bin\Debug\DB Manager.exe.config
+C:\Users\KOSTA\Desktop\KOSTA\DB\DB Manager\bin\Debug\DB Manager.exe
+C:\Users\KOSTA\Desktop\KOSTA\DB\DB Manager\bin\Debug\DB Manager.pdb
+C:\Users\KOSTA\Desktop\KOSTA\DB\DB Manager\obj\Debug\DB Manager.exe
+C:\Users\KOSTA\Desktop\KOSTA\DB\DB Manager\obj\Debug\DB Manager.pdb
