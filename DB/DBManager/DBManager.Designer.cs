@@ -84,8 +84,7 @@ namespace DBManager
             this.ddTableList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ddTableList.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ddTableList.Name = "ddTableList";
-            this.ddTableList.Size = new System.Drawing.Size(70, 20);
-            this.ddTableList.Text = "Table List";
+            this.ddTableList.Size = new System.Drawing.Size(13, 20);
             this.ddTableList.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ddTableList_DropDownItemClicked);
             // 
             // menuStrip
@@ -101,7 +100,7 @@ namespace DBManager
             this.mnuHelp});
             this.menuStrip.Location = new System.Drawing.Point(4, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(353, 24);
+            this.menuStrip.Size = new System.Drawing.Size(233, 24);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -202,21 +201,21 @@ namespace DBManager
             // mnuEditAddcol
             // 
             this.mnuEditAddcol.Name = "mnuEditAddcol";
-            this.mnuEditAddcol.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditAddcol.Size = new System.Drawing.Size(156, 22);
             this.mnuEditAddcol.Text = "Add Column";
             this.mnuEditAddcol.Click += new System.EventHandler(this.mnuEditAddcol_Click);
             // 
             // mnuEditAddrow
             // 
             this.mnuEditAddrow.Name = "mnuEditAddrow";
-            this.mnuEditAddrow.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditAddrow.Size = new System.Drawing.Size(156, 22);
             this.mnuEditAddrow.Text = "Add Row";
             this.mnuEditAddrow.Click += new System.EventHandler(this.mnuEditAddrow_Click);
             // 
             // mnuEditNew
             // 
             this.mnuEditNew.Name = "mnuEditNew";
-            this.mnuEditNew.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditNew.Size = new System.Drawing.Size(156, 22);
             this.mnuEditNew.Text = "Add New Table";
             this.mnuEditNew.Click += new System.EventHandler(this.mnuEditNew_Click);
             // 

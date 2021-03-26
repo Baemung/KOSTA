@@ -120,23 +120,6 @@ namespace DBManager
             }
         }
 
-        private void mnuExecSql_Click(object sender, EventArgs e)
-        {
-            RunSQL(SQLInput.Text);
-        }
-
-        private void mnuExecSelsql_Click(object sender, EventArgs e)
-        {
-            RunSQL(SQLInput.SelectedText);
-        }
-
-        private string Get_Token(char deli, string str, int index)
-        {
-            string[] strs = str.Split(deli);
-            string ret = strs[index];
-            return ret;
-        }
-
         string tName;
         int RunSQL(string sql)
         {
@@ -277,10 +260,26 @@ namespace DBManager
                 RunSQL($"insert into {new_tName} values ({rows})");
             }
         }
+        private void mnuExecSql_Click(object sender, EventArgs e)
+        {
+            RunSQL(SQLInput.Text);
+        }
+
+        private void mnuExecSelsql_Click(object sender, EventArgs e)
+        {
+            RunSQL(SQLInput.SelectedText);
+        }
 
         private void mnuExecEnter_Click(object sender, EventArgs e)
         {
             mnuExecEnter.Checked = !mnuExecEnter.Checked;
+        }
+
+        private string Get_Token(char deli, string str, int index)
+        {
+            string[] strs = str.Split(deli);
+            string ret = strs[index];
+            return ret;
         }
     }
 }
