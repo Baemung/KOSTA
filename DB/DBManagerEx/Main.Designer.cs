@@ -61,6 +61,7 @@ namespace DBManagerEx
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.sl1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sl2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.sl3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -69,7 +70,7 @@ namespace DBManagerEx
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.tbSql = new System.Windows.Forms.TextBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.sl2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.mnuFileCsvtotable = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -105,6 +106,7 @@ namespace DBManagerEx
             this.toolStripMenuItem2,
             this.mnuFileCtable,
             this.mnuFileUtable,
+            this.mnuFileCsvtotable,
             this.toolStripMenuItem3,
             this.mnuFileExit});
             this.mnuFile.Name = "mnuFile";
@@ -201,59 +203,59 @@ namespace DBManagerEx
             // mnuEditAddcol
             // 
             this.mnuEditAddcol.Name = "mnuEditAddcol";
-            this.mnuEditAddcol.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditAddcol.Size = new System.Drawing.Size(177, 22);
             this.mnuEditAddcol.Text = "Add Column";
             this.mnuEditAddcol.Click += new System.EventHandler(this.mnuEditAddcol_Click);
             // 
             // mnuEditAddrow
             // 
             this.mnuEditAddrow.Name = "mnuEditAddrow";
-            this.mnuEditAddrow.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditAddrow.Size = new System.Drawing.Size(177, 22);
             this.mnuEditAddrow.Text = "Add Row";
             this.mnuEditAddrow.Click += new System.EventHandler(this.mnuEditAddrow_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(174, 6);
             // 
             // mnuEditDropt
             // 
             this.mnuEditDropt.Name = "mnuEditDropt";
-            this.mnuEditDropt.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditDropt.Size = new System.Drawing.Size(177, 22);
             this.mnuEditDropt.Text = "Drop Table";
             this.mnuEditDropt.Click += new System.EventHandler(this.mnuEditDropt_Click);
             // 
             // mnuEditDropcol
             // 
             this.mnuEditDropcol.Name = "mnuEditDropcol";
-            this.mnuEditDropcol.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditDropcol.Size = new System.Drawing.Size(177, 22);
             this.mnuEditDropcol.Text = "Drop Column";
             this.mnuEditDropcol.Click += new System.EventHandler(this.mnuEditDropcol_Click);
             // 
             // mnuEditDelrow
             // 
             this.mnuEditDelrow.Name = "mnuEditDelrow";
-            this.mnuEditDelrow.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditDelrow.Size = new System.Drawing.Size(177, 22);
             this.mnuEditDelrow.Text = "Delete Row";
             this.mnuEditDelrow.Click += new System.EventHandler(this.mnuEditDelrow_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(174, 6);
             // 
             // mnuEditTname
             // 
             this.mnuEditTname.Name = "mnuEditTname";
-            this.mnuEditTname.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditTname.Size = new System.Drawing.Size(177, 22);
             this.mnuEditTname.Text = "Edit Table Name";
             this.mnuEditTname.Click += new System.EventHandler(this.mnuEditTname_Click);
             // 
             // mnuEditCname
             // 
             this.mnuEditCname.Name = "mnuEditCname";
-            this.mnuEditCname.Size = new System.Drawing.Size(180, 22);
+            this.mnuEditCname.Size = new System.Drawing.Size(177, 22);
             this.mnuEditCname.Text = "Edit Column Name";
             this.mnuEditCname.Click += new System.EventHandler(this.mnuEditCname_Click);
             // 
@@ -317,6 +319,15 @@ namespace DBManagerEx
             this.sl1.Name = "sl1";
             this.sl1.Size = new System.Drawing.Size(0, 17);
             // 
+            // sl2
+            // 
+            this.sl2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.sl2.Image = ((System.Drawing.Image)(resources.GetObject("sl2.Image")));
+            this.sl2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.sl2.Name = "sl2";
+            this.sl2.Size = new System.Drawing.Size(13, 20);
+            this.sl2.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.sl2_DropDownItemClicked);
+            // 
             // sl3
             // 
             this.sl3.Name = "sl3";
@@ -372,14 +383,12 @@ namespace DBManagerEx
             this.dataGrid.TabIndex = 0;
             this.dataGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGrid_CellBeginEdit);
             // 
-            // sl2
+            // mnuFileCsvtotable
             // 
-            this.sl2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.sl2.Image = ((System.Drawing.Image)(resources.GetObject("sl2.Image")));
-            this.sl2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.sl2.Name = "sl2";
-            this.sl2.Size = new System.Drawing.Size(13, 20);
-            this.sl2.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.sl2_DropDownItemClicked);
+            this.mnuFileCsvtotable.Name = "mnuFileCsvtotable";
+            this.mnuFileCsvtotable.Size = new System.Drawing.Size(180, 22);
+            this.mnuFileCsvtotable.Text = "csv to Table";
+            this.mnuFileCsvtotable.Click += new System.EventHandler(this.mnuFileCsvtotable_Click);
             // 
             // Main
             // 
@@ -450,6 +459,7 @@ namespace DBManagerEx
         private System.Windows.Forms.ToolStripMenuItem mnuEditTname;
         private System.Windows.Forms.ToolStripMenuItem mnuEditDropt;
         private System.Windows.Forms.ToolStripDropDownButton sl2;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileCsvtotable;
     }
 }
 

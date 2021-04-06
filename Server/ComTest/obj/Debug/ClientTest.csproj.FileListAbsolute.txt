@@ -1,0 +1,9 @@
+C:\Users\anvo9\KOSTA\Server\ComTest\bin\Debug\ComTest.exe.config
+C:\Users\anvo9\KOSTA\Server\ComTest\bin\Debug\ComTest.exe
+C:\Users\anvo9\KOSTA\Server\ComTest\bin\Debug\ComTest.pdb
+C:\Users\anvo9\KOSTA\Server\ComTest\obj\Debug\ComTest.Properties.Resources.resources
+C:\Users\anvo9\KOSTA\Server\ComTest\obj\Debug\ClientTest.csproj.GenerateResource.cache
+C:\Users\anvo9\KOSTA\Server\ComTest\obj\Debug\ClientTest.csproj.CoreCompileInputs.cache
+C:\Users\anvo9\KOSTA\Server\ComTest\obj\Debug\ComTest.exe
+C:\Users\anvo9\KOSTA\Server\ComTest\obj\Debug\ComTest.pdb
+C:\Users\anvo9\KOSTA\Server\ComTest\obj\Debug\ComTest.Client.resources

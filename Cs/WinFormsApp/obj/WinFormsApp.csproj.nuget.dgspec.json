@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\KOSTA\\Desktop\\KOSTA\\Cs\\WinFormsApp\\WinFormsApp.csproj": {}
+    "C:\\Users\\anvo9\\KOSTA\\Cs\\WinFormsApp\\WinFormsApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\KOSTA\\Desktop\\KOSTA\\Cs\\WinFormsApp\\WinFormsApp.csproj": {
+    "C:\\Users\\anvo9\\KOSTA\\Cs\\WinFormsApp\\WinFormsApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KOSTA\\Desktop\\KOSTA\\Cs\\WinFormsApp\\WinFormsApp.csproj",
+        "projectUniqueName": "C:\\Users\\anvo9\\KOSTA\\Cs\\WinFormsApp\\WinFormsApp.csproj",
         "projectName": "WinFormsApp",
-        "projectPath": "C:\\Users\\KOSTA\\Desktop\\KOSTA\\Cs\\WinFormsApp\\WinFormsApp.csproj",
-        "packagesPath": "C:\\Users\\KOSTA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KOSTA\\Desktop\\KOSTA\\Cs\\WinFormsApp\\obj\\",
+        "projectPath": "C:\\Users\\anvo9\\KOSTA\\Cs\\WinFormsApp\\WinFormsApp.csproj",
+        "packagesPath": "C:\\Users\\anvo9\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anvo9\\KOSTA\\Cs\\WinFormsApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\KOSTA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anvo9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

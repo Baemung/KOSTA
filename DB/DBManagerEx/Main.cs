@@ -34,8 +34,6 @@ namespace DBManagerEx
         private void mnuFileOpen_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
-            Clear();
-            sqlConn.Close();
             StreamReader sr = new StreamReader(openFileDialog.FileName);
             string fName = openFileDialog.SafeFileName;
 
@@ -344,6 +342,23 @@ namespace DBManagerEx
                 MessageBox.Show(e.Message, "SQL Error");
                 sl3.Text = "  Execution Error  ";
                 sl3.BackColor = Color.Red;
+            }
+        }
+
+        private void mnuFileCsvtotable_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGrid.Rows.Count; i++)
+            {
+                string val = "";
+                for (int j = 0; j < dataGrid.Columns.Count; j++)
+                {
+                    val += $"\'{dataGrid[j, i].Value}\',";
+                    
+                }
+                val = val.Substring(0, val.Length - 1);
+                string sql = $"insert into Profits values ({val})";
+                MessageBox.Show(sql);
+                Run(sql);
             }
         }
     }

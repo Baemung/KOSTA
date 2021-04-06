@@ -12,7 +12,14 @@ namespace DBManager
         public DBManager()
         {
             InitializeComponent();
+            sqlConn.ConnectionString = db;
+            sqlConn.Open();
+            sqlCom.Connection = sqlConn;
         }
+
+        SqlConnection sqlConn = new SqlConnection();
+        SqlCommand sqlCom = new SqlCommand();
+        string db = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\anvo9\KOSTA_Project\Caffe_Manager\Caffe_Manager.mdf;Integrated Security = True; Connect Timeout = 30";
 
         private void mnuFileMigration_Click(object sender, EventArgs e)
         {
