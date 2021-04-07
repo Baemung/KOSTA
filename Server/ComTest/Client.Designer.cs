@@ -35,10 +35,13 @@ namespace ComTest
             this.tbIPPort = new System.Windows.Forms.TextBox();
             this.tbIP = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.sbMessage = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -54,20 +57,24 @@ namespace ComTest
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.statusStrip);
             this.splitContainer1.Panel2.Controls.Add(this.lbIP);
             this.splitContainer1.Panel2.Controls.Add(this.tbIPPort);
             this.splitContainer1.Panel2.Controls.Add(this.tbIP);
             this.splitContainer1.Panel2.Controls.Add(this.btnSend);
             this.splitContainer1.Size = new System.Drawing.Size(473, 415);
-            this.splitContainer1.SplitterDistance = 369;
+            this.splitContainer1.SplitterDistance = 346;
             this.splitContainer1.TabIndex = 0;
             // 
             // tbClient
             // 
+            this.tbClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbClient.Location = new System.Drawing.Point(0, 0);
             this.tbClient.Multiline = true;
             this.tbClient.Name = "tbClient";
-            this.tbClient.Size = new System.Drawing.Size(474, 394);
+            this.tbClient.Size = new System.Drawing.Size(474, 393);
             this.tbClient.TabIndex = 0;
             // 
             // lbIP
@@ -84,9 +91,8 @@ namespace ComTest
             this.tbIPPort.Location = new System.Drawing.Point(254, 9);
             this.tbIPPort.Multiline = true;
             this.tbIPPort.Name = "tbIPPort";
-            this.tbIPPort.Size = new System.Drawing.Size(55, 21);
+            this.tbIPPort.Size = new System.Drawing.Size(55, 22);
             this.tbIPPort.TabIndex = 1;
-            this.tbIPPort.Text = "9001";
             this.tbIPPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbIP
@@ -95,18 +101,34 @@ namespace ComTest
             this.tbIP.Name = "tbIP";
             this.tbIP.Size = new System.Drawing.Size(90, 21);
             this.tbIP.TabIndex = 1;
-            this.tbIP.Text = "127.0.0.1";
             this.tbIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnSend
             // 
+            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSend.Location = new System.Drawing.Point(315, 8);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(147, 24);
+            this.btnSend.Size = new System.Drawing.Size(147, 25);
             this.btnSend.TabIndex = 0;
             this.btnSend.Text = "Send 1 Packet";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sbMessage});
+            this.statusStrip.Location = new System.Drawing.Point(0, 43);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(473, 22);
+            this.statusStrip.TabIndex = 3;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // sbMessage
+            // 
+            this.sbMessage.Name = "sbMessage";
+            this.sbMessage.Size = new System.Drawing.Size(0, 17);
             // 
             // Client
             // 
@@ -117,12 +139,16 @@ namespace ComTest
             this.Name = "Client";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Client_FormClosing);
+            this.Load += new System.EventHandler(this.Client_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -135,6 +161,8 @@ namespace ComTest
         private System.Windows.Forms.TextBox tbIPPort;
         private System.Windows.Forms.Label lbIP;
         private System.Windows.Forms.TextBox tbClient;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel sbMessage;
     }
 }
 
