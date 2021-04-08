@@ -56,6 +56,7 @@ namespace ComTest
             GetPrivateProfileString("Form", "SizeX", $"500", sb512, 512, @"ComClient.ini"); x2 = int.Parse(sb512.ToString());
             GetPrivateProfileString("Form", "SizeX", $"500", sb512, 512, @"ComClient.ini"); y2 = int.Parse(sb512.ToString());
             Location = new Point(x1, y1);
+            Size = new Size(x2, y2);
             tbIP.Text = init_IP;
             tbIPPort.Text = $"{init_Port}";
         }

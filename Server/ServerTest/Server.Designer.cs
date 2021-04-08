@@ -128,6 +128,7 @@ namespace ServerTest
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Server_FormClosed);
+            this.Load += new System.EventHandler(this.Server_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
