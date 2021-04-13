@@ -31,14 +31,19 @@ namespace ChatManager
         {
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tbIP = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.tbPort = new System.Windows.Forms.TextBox();
+            this.tbSend = new System.Windows.Forms.TextBox();
+            this.tbReceive = new System.Windows.Forms.TextBox();
             this.lbIP = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbPort = new System.Windows.Forms.TextBox();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.tbIP = new System.Windows.Forms.TextBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.sl1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sl2 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -49,6 +54,7 @@ namespace ChatManager
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -70,7 +76,7 @@ namespace ChatManager
             this.splitContainer.Panel2.Controls.Add(this.btnConnect);
             this.splitContainer.Panel2.Controls.Add(this.btnSend);
             this.splitContainer.Panel2.Controls.Add(this.tbIP);
-            this.splitContainer.Size = new System.Drawing.Size(587, 377);
+            this.splitContainer.Size = new System.Drawing.Size(587, 378);
             this.splitContainer.SplitterDistance = 374;
             this.splitContainer.TabIndex = 0;
             this.splitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer_SplitterMoved);
@@ -83,30 +89,58 @@ namespace ChatManager
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer2.Panel1.Controls.Add(this.tbSend);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.textBox2);
-            this.splitContainer2.Size = new System.Drawing.Size(374, 377);
+            this.splitContainer2.Panel2.Controls.Add(this.tbReceive);
+            this.splitContainer2.Size = new System.Drawing.Size(374, 378);
             this.splitContainer2.SplitterDistance = 183;
             this.splitContainer2.TabIndex = 0;
             // 
-            // splitContainer1
+            // tbSend
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(314, 297);
-            this.splitContainer1.SplitterDistance = 148;
-            this.splitContainer1.TabIndex = 1;
+            this.tbSend.Location = new System.Drawing.Point(2, 0);
+            this.tbSend.Multiline = true;
+            this.tbSend.Name = "tbSend";
+            this.tbSend.Size = new System.Drawing.Size(180, 377);
+            this.tbSend.TabIndex = 0;
             // 
-            // tbIP
+            // tbReceive
             // 
-            this.tbIP.Location = new System.Drawing.Point(23, 50);
-            this.tbIP.Name = "tbIP";
-            this.tbIP.Size = new System.Drawing.Size(99, 21);
-            this.tbIP.TabIndex = 0;
+            this.tbReceive.Location = new System.Drawing.Point(2, 0);
+            this.tbReceive.Multiline = true;
+            this.tbReceive.Name = "tbReceive";
+            this.tbReceive.Size = new System.Drawing.Size(185, 377);
+            this.tbReceive.TabIndex = 0;
+            // 
+            // lbIP
+            // 
+            this.lbIP.AutoSize = true;
+            this.lbIP.Location = new System.Drawing.Point(15, 28);
+            this.lbIP.Name = "lbIP";
+            this.lbIP.Size = new System.Drawing.Size(101, 12);
+            this.lbIP.TabIndex = 4;
+            this.lbIP.Text = "IP - Port Number";
+            // 
+            // tbPort
+            // 
+            this.tbPort.Location = new System.Drawing.Point(122, 50);
+            this.tbPort.Name = "tbPort";
+            this.tbPort.Size = new System.Drawing.Size(69, 21);
+            this.tbPort.TabIndex = 3;
+            this.tbPort.Text = "9001";
+            this.tbPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(122, 21);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(69, 23);
+            this.btnConnect.TabIndex = 2;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // btnSend
             // 
@@ -118,53 +152,73 @@ namespace ChatManager
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // btnConnect
+            // tbIP
             // 
-            this.btnConnect.Location = new System.Drawing.Point(128, 21);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(69, 23);
-            this.btnConnect.TabIndex = 2;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            this.tbIP.Location = new System.Drawing.Point(17, 50);
+            this.tbIP.Name = "tbIP";
+            this.tbIP.Size = new System.Drawing.Size(99, 21);
+            this.tbIP.TabIndex = 0;
+            this.tbIP.Text = "127.0.0.1";
+            this.tbIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbPort
+            // splitContainer1
             // 
-            this.tbPort.Location = new System.Drawing.Point(128, 50);
-            this.tbPort.Name = "tbPort";
-            this.tbPort.Size = new System.Drawing.Size(69, 21);
-            this.tbPort.TabIndex = 3;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Size = new System.Drawing.Size(314, 297);
+            this.splitContainer1.SplitterDistance = 148;
+            this.splitContainer1.TabIndex = 1;
             // 
-            // lbIP
+            // label1
             // 
-            this.lbIP.AutoSize = true;
-            this.lbIP.Location = new System.Drawing.Point(21, 28);
-            this.lbIP.Name = "lbIP";
-            this.lbIP.Size = new System.Drawing.Size(101, 12);
-            this.lbIP.TabIndex = 4;
-            this.lbIP.Text = "IP - Port Number";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(60, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "[ Send ]";
             // 
-            // textBox1
+            // label2
             // 
-            this.textBox1.Location = new System.Drawing.Point(2, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 377);
-            this.textBox1.TabIndex = 0;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(245, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 12);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "[ Receive ]";
             // 
-            // textBox2
+            // statusStrip
             // 
-            this.textBox2.Location = new System.Drawing.Point(1, 0);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 377);
-            this.textBox2.TabIndex = 0;
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sl1,
+            this.sl2});
+            this.statusStrip.Location = new System.Drawing.Point(0, 473);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(588, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // sl1
+            // 
+            this.sl1.Name = "sl1";
+            this.sl1.Size = new System.Drawing.Size(0, 17);
+            // 
+            // sl2
+            // 
+            this.sl2.Name = "sl2";
+            this.sl2.Size = new System.Drawing.Size(0, 17);
             // 
             // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 436);
+            this.ClientSize = new System.Drawing.Size(588, 495);
+            this.Controls.Add(this.statusStrip);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.splitContainer);
             this.Name = "frmClient";
             this.Text = "Chat Manager";
@@ -181,7 +235,10 @@ namespace ChatManager
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -195,8 +252,13 @@ namespace ChatManager
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.TextBox tbPort;
         private System.Windows.Forms.Label lbIP;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbSend;
+        private System.Windows.Forms.TextBox tbReceive;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel sl1;
+        private System.Windows.Forms.ToolStripStatusLabel sl2;
     }
 }
 

@@ -35,7 +35,7 @@ namespace ChatManager
             while (true)
             {
                 int n = sock.Available;
-                if (n > 0)
+                if (n > 0 && sock.Connected)
                 {
                     byte[] bArr = new byte[n];
                     sock.Receive(bArr);
@@ -53,12 +53,47 @@ namespace ChatManager
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                if (sock == null)
+                {
+                    sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                }
+                else
+                {
+                    if (threadClient != null)
+                    {
+                        threadClient.Abort();
+                        threadClient = null;
+                    }
+                    sock.Close();
+                    sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                }
+                sock.Connect(tbIP.Text, int.Parse(tbPort.Text));
+                sl1.Text = ((IPEndPoint)(sock.RemoteEndPoint)).Address.ToString();
+                sl2.Text = ((IPEndPoint)(sock.RemoteEndPoint)).Port.ToString();
+
+                if (threadClient == null)
+                {
+                    threadClient = new Thread(ClientProcess);
+                    threadClient.Start();
+                }
+            }
+            catch(Exception e1)
+            {
+                tbReceive.AppendText(e1.Message + "커넥션에 오류가 생겼습니다.\r\n");
+            }
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-
+            if(sock.Connected == true)
+            {
+                string str = tbSend.Text.Trim();
+                string[] sArr = str.Split('\r');
+                string sLast = sArr[sArr.Length - 1];
+                sock.Send(Encoding.Default.GetBytes(sLast));
+            }
         }
     }
 }

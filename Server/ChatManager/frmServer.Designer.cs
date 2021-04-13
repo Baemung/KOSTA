@@ -31,13 +31,14 @@ namespace ChatManager
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.tbSender = new System.Windows.Forms.TextBox();
-            this.tbReciever = new System.Windows.Forms.TextBox();
-            this.tbPort = new System.Windows.Forms.TextBox();
-            this.lbPort = new System.Windows.Forms.Label();
+            this.tbSend = new System.Windows.Forms.TextBox();
+            this.tbRecieve = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
+            this.lbPort = new System.Windows.Forms.Label();
+            this.tbPort = new System.Windows.Forms.TextBox();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.sl1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnSend = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -63,6 +64,7 @@ namespace ChatManager
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnSend);
             this.splitContainer1.Panel2.Controls.Add(this.btnStart);
             this.splitContainer1.Panel2.Controls.Add(this.lbPort);
             this.splitContainer1.Panel2.Controls.Add(this.tbPort);
@@ -78,46 +80,31 @@ namespace ChatManager
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.tbSender);
+            this.splitContainer2.Panel1.Controls.Add(this.tbSend);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.tbReciever);
+            this.splitContainer2.Panel2.Controls.Add(this.tbRecieve);
             this.splitContainer2.Size = new System.Drawing.Size(429, 402);
-            this.splitContainer2.SplitterDistance = 209;
+            this.splitContainer2.SplitterDistance = 208;
             this.splitContainer2.TabIndex = 0;
             // 
-            // tbSender
+            // tbSend
             // 
-            this.tbSender.Location = new System.Drawing.Point(0, 20);
-            this.tbSender.Multiline = true;
-            this.tbSender.Name = "tbSender";
-            this.tbSender.Size = new System.Drawing.Size(206, 379);
-            this.tbSender.TabIndex = 0;
+            this.tbSend.Location = new System.Drawing.Point(0, 20);
+            this.tbSend.Multiline = true;
+            this.tbSend.Name = "tbSend";
+            this.tbSend.Size = new System.Drawing.Size(206, 379);
+            this.tbSend.TabIndex = 0;
+            this.tbSend.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSend_KeyUp);
             // 
-            // tbReciever
+            // tbRecieve
             // 
-            this.tbReciever.Location = new System.Drawing.Point(3, 20);
-            this.tbReciever.Multiline = true;
-            this.tbReciever.Name = "tbReciever";
-            this.tbReciever.Size = new System.Drawing.Size(213, 379);
-            this.tbReciever.TabIndex = 0;
-            // 
-            // tbPort
-            // 
-            this.tbPort.Location = new System.Drawing.Point(83, 18);
-            this.tbPort.Name = "tbPort";
-            this.tbPort.Size = new System.Drawing.Size(60, 21);
-            this.tbPort.TabIndex = 0;
-            // 
-            // lbPort
-            // 
-            this.lbPort.AutoSize = true;
-            this.lbPort.Location = new System.Drawing.Point(10, 23);
-            this.lbPort.Name = "lbPort";
-            this.lbPort.Size = new System.Drawing.Size(67, 12);
-            this.lbPort.TabIndex = 1;
-            this.lbPort.Text = "Server Port";
+            this.tbRecieve.Location = new System.Drawing.Point(3, 20);
+            this.tbRecieve.Multiline = true;
+            this.tbRecieve.Name = "tbRecieve";
+            this.tbRecieve.Size = new System.Drawing.Size(213, 379);
+            this.tbRecieve.TabIndex = 0;
             // 
             // btnStart
             // 
@@ -128,6 +115,24 @@ namespace ChatManager
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // lbPort
+            // 
+            this.lbPort.AutoSize = true;
+            this.lbPort.Location = new System.Drawing.Point(10, 23);
+            this.lbPort.Name = "lbPort";
+            this.lbPort.Size = new System.Drawing.Size(67, 12);
+            this.lbPort.TabIndex = 1;
+            this.lbPort.Text = "Server Port";
+            // 
+            // tbPort
+            // 
+            this.tbPort.Location = new System.Drawing.Point(83, 18);
+            this.tbPort.Name = "tbPort";
+            this.tbPort.Size = new System.Drawing.Size(60, 21);
+            this.tbPort.TabIndex = 0;
+            this.tbPort.Text = "9001";
+            this.tbPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // statusStrip
             // 
@@ -144,6 +149,16 @@ namespace ChatManager
             this.sl1.Name = "sl1";
             this.sl1.Size = new System.Drawing.Size(0, 17);
             // 
+            // btnSend
+            // 
+            this.btnSend.Location = new System.Drawing.Point(38, 165);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 56);
+            this.btnSend.TabIndex = 3;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -153,6 +168,8 @@ namespace ChatManager
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmServer";
             this.Text = "Chat Server";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmServer_FormClosing);
+            this.Load += new System.EventHandler(this.frmServer_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -175,12 +192,13 @@ namespace ChatManager
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.TextBox tbSender;
-        private System.Windows.Forms.TextBox tbReciever;
+        private System.Windows.Forms.TextBox tbSend;
+        private System.Windows.Forms.TextBox tbRecieve;
         private System.Windows.Forms.Label lbPort;
         private System.Windows.Forms.TextBox tbPort;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel sl1;
+        private System.Windows.Forms.Button btnSend;
     }
 }
