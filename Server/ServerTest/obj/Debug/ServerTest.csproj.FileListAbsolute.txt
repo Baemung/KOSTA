@@ -7,3 +7,7 @@ C:\Users\anvo9\KOSTA\Server\ServerTest\obj\Debug\ServerTest.csproj.CoreCompileIn
 C:\Users\anvo9\KOSTA\Server\ServerTest\obj\Debug\ServerTest.exe
 C:\Users\anvo9\KOSTA\Server\ServerTest\obj\Debug\ServerTest.pdb
 C:\Users\anvo9\KOSTA\Server\ServerTest\obj\Debug\ServerTest.Server.resources
+C:\Users\anvo9\KOSTA\Server\ServerTest\bin\Debug\myLibrary.dll
+C:\Users\anvo9\KOSTA\Server\ServerTest\bin\Debug\myLibrary.pdb
+C:\Users\anvo9\KOSTA\Server\ServerTest\obj\Debug\ServerTest.csprojAssemblyReference.cache
+C:\Users\anvo9\KOSTA\Server\ServerTest\obj\Debug\ServerTest.csproj.CopyComplete

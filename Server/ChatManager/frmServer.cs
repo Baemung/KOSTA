@@ -30,7 +30,7 @@ namespace ChatManager
             }
             else
             {
-                //tbReciever.AppendText();
+                tbRecieve.AppendText(str);
             }
         }
 
@@ -110,7 +110,7 @@ namespace ChatManager
                 string str = sArr[sArr.Length - 2] + "\n";
                 strSend(str);
 
-                strSend(tbSend.Text.Split('\n')[tbSend.GetLineFromCharIndex(tbSend.SelectionStart)-1]+"\n");
+                //strSend(tbSend.Text.Split('\n')[tbSend.GetLineFromCharIndex(tbSend.SelectionStart)-1]+"\n");
             }
         }
 
