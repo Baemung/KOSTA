@@ -7,3 +7,4 @@ C:\Users\anvo9\KOSTA\Server\Chatting\bin\Debug\Chatting.exe
 C:\Users\anvo9\KOSTA\Server\Chatting\bin\Debug\Chatting.pdb
 C:\Users\anvo9\KOSTA\Server\Chatting\obj\Debug\Chatting.exe
 C:\Users\anvo9\KOSTA\Server\Chatting\obj\Debug\Chatting.pdb
+C:\Users\anvo9\KOSTA\Server\Chatting\obj\Debug\Chatting.csprojAssemblyReference.cache

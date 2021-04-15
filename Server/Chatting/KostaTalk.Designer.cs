@@ -78,8 +78,8 @@ namespace Chatting
             this.splitContainer1.Panel2.Controls.Add(this.tbIP);
             this.splitContainer1.Panel2.Controls.Add(this.tbSPort);
             this.splitContainer1.Panel2.Controls.Add(this.lbServer);
-            this.splitContainer1.Size = new System.Drawing.Size(582, 356);
-            this.splitContainer1.SplitterDistance = 312;
+            this.splitContainer1.Size = new System.Drawing.Size(577, 360);
+            this.splitContainer1.SplitterDistance = 315;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
@@ -95,8 +95,8 @@ namespace Chatting
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tbClient);
-            this.splitContainer2.Size = new System.Drawing.Size(582, 312);
-            this.splitContainer2.SplitterDistance = 288;
+            this.splitContainer2.Size = new System.Drawing.Size(577, 315);
+            this.splitContainer2.SplitterDistance = 285;
             this.splitContainer2.TabIndex = 0;
             // 
             // tbServer
@@ -109,7 +109,7 @@ namespace Chatting
             this.tbServer.Name = "tbServer";
             this.tbServer.ReadOnly = true;
             this.tbServer.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbServer.Size = new System.Drawing.Size(282, 306);
+            this.tbServer.Size = new System.Drawing.Size(279, 309);
             this.tbServer.TabIndex = 0;
             // 
             // tbClient
@@ -121,7 +121,7 @@ namespace Chatting
             this.tbClient.Multiline = true;
             this.tbClient.Name = "tbClient";
             this.tbClient.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbClient.Size = new System.Drawing.Size(284, 306);
+            this.tbClient.Size = new System.Drawing.Size(282, 309);
             this.tbClient.TabIndex = 0;
             // 
             // lbClient
@@ -193,9 +193,9 @@ namespace Chatting
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sbMessage});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 396);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 400);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(606, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(601, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -235,7 +235,7 @@ namespace Chatting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 418);
+            this.ClientSize = new System.Drawing.Size(601, 422);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

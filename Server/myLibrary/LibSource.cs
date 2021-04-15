@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -42,6 +43,14 @@ namespace myLibrary
         public int SetString(string sec, string key, string val)
         {
             return WritePrivateProfileString(sec, key, val, iniPath);
+        }
+    }
+
+    public static class jslib
+    {
+        public static void WriteLog(string str)
+        {
+            StreamWriter sw 
         }
     }
 }

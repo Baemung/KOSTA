@@ -39,8 +39,11 @@ namespace Chatting
         //Server
         Thread threadServer = null;
         Thread threadRead = null;
+        Socket sockServer = null;
         TcpListener listener = null;
         TcpClient tcp = null;
+        byte[] sAddress = { 0, 0, 0, 0 };
+        string sPort = "9001";
 
         private void AddText(string str)
         {
@@ -140,7 +143,7 @@ namespace Chatting
                 {
                     if (tbClient.Text != "")
                     {
-                        sock.Send(Encoding.Default.GetBytes($"[{clientName}] {tbClient.Text}"));
+                        sock.Send(Encoding.Default.GetBytes($"{tbClient.Text}"));
                         if (tbServer.Text != "") tbServer.Text += "\r\n";
                     }
                     tbClient.Clear();
@@ -194,5 +197,34 @@ namespace Chatting
             }
         }
 
+        //void DoRead()
+        //{
+        //    if(threadRead != null)
+        //    {
+        //        threadRead.Abort();
+        //        threadRead = null;
+        //    }
+        //    threadRead = new Thread(ReadProcess);
+        //    threadRead.Start();
+        //}
+
+        //void SProcess()
+        //{
+        //    IPAddress IP = new IPAddress(sAddress);
+        //    IPEndPoint ep = new IPEndPoint(IP, int.Parse(sPort));
+        //    sockServer.Bind(ep);
+        //    sockServer.Listen(10);
+
+        //    sockServer.BeginAccept(new AsyncCallback(OnAccept), null);
+        //    while(true)
+        //    {
+        //        if (Pending)
+        //        {
+        //            sock = acceptSocket();
+        //            DoRead();
+        //            AddText($"Remote EndPoint {}");
+        //        }
+        //    }
+        //}
     }
 }
