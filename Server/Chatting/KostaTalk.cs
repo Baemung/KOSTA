@@ -196,17 +196,17 @@ namespace Chatting
                 Thread.Sleep(10);
             }
         }
-
-        //void DoRead()
-        //{
-        //    if(threadRead != null)
-        //    {
-        //        threadRead.Abort();
-        //        threadRead = null;
-        //    }
-        //    threadRead = new Thread(ReadProcess);
-        //    threadRead.Start();
-        //}
+        
+        void DoRead()
+        {
+            if(threadRead != null)
+            {
+                threadRead.Abort();
+                threadRead = null;
+            }
+            threadRead = new Thread(ReadProcess);
+            threadRead.Start();
+        }
 
         //void SProcess()
         //{
