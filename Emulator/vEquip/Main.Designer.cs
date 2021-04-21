@@ -32,16 +32,22 @@ namespace vEquip
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileStart = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileStop = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuConfig = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.sblabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.sblabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dtStop = new System.Windows.Forms.DateTimePicker();
+            this.dtStopDate = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
-            this.dtStart = new System.Windows.Forms.DateTimePicker();
+            this.dtStartDate = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.tbInterval = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -73,13 +79,9 @@ namespace vEquip
             this.tbEqCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbMonitor = new System.Windows.Forms.TextBox();
-            this.mnuConfig = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileStart = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileStop = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.dtStartTime = new System.Windows.Forms.DateTimePicker();
+            this.dtStopTime = new System.Windows.Forms.DateTimePicker();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -116,6 +118,31 @@ namespace vEquip
             this.mnuFile.Size = new System.Drawing.Size(37, 20);
             this.mnuFile.Text = "File";
             // 
+            // mnuFileStart
+            // 
+            this.mnuFileStart.Name = "mnuFileStart";
+            this.mnuFileStart.Size = new System.Drawing.Size(180, 22);
+            this.mnuFileStart.Text = "Start";
+            this.mnuFileStart.Click += new System.EventHandler(this.mnuFileStart_Click);
+            // 
+            // mnuFileStop
+            // 
+            this.mnuFileStop.Name = "mnuFileStop";
+            this.mnuFileStop.Size = new System.Drawing.Size(180, 22);
+            this.mnuFileStop.Text = "Stop";
+            this.mnuFileStop.Click += new System.EventHandler(this.mnuFileStop_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // mnuFileExit
+            // 
+            this.mnuFileExit.Name = "mnuFileExit";
+            this.mnuFileExit.Size = new System.Drawing.Size(180, 22);
+            this.mnuFileExit.Text = "Exit";
+            // 
             // mnuEdit
             // 
             this.mnuEdit.Name = "mnuEdit";
@@ -127,6 +154,18 @@ namespace vEquip
             this.mnuView.Name = "mnuView";
             this.mnuView.Size = new System.Drawing.Size(45, 20);
             this.mnuView.Text = "View";
+            // 
+            // mnuConfig
+            // 
+            this.mnuConfig.Name = "mnuConfig";
+            this.mnuConfig.Size = new System.Drawing.Size(55, 20);
+            this.mnuConfig.Text = "Config";
+            // 
+            // mnuHelp
+            // 
+            this.mnuHelp.Name = "mnuHelp";
+            this.mnuHelp.Size = new System.Drawing.Size(44, 20);
+            this.mnuHelp.Text = "Help";
             // 
             // statusStrip
             // 
@@ -178,9 +217,11 @@ namespace vEquip
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dtStop);
+            this.groupBox3.Controls.Add(this.dtStopTime);
+            this.groupBox3.Controls.Add(this.dtStartTime);
+            this.groupBox3.Controls.Add(this.dtStopDate);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.dtStart);
+            this.groupBox3.Controls.Add(this.dtStartDate);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.tbInterval);
             this.groupBox3.Controls.Add(this.label16);
@@ -192,12 +233,13 @@ namespace vEquip
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "가동정보";
             // 
-            // dtStop
+            // dtStopDate
             // 
-            this.dtStop.Location = new System.Drawing.Point(79, 64);
-            this.dtStop.Name = "dtStop";
-            this.dtStop.Size = new System.Drawing.Size(223, 21);
-            this.dtStop.TabIndex = 0;
+            this.dtStopDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtStopDate.Location = new System.Drawing.Point(79, 64);
+            this.dtStopDate.Name = "dtStopDate";
+            this.dtStopDate.Size = new System.Drawing.Size(91, 21);
+            this.dtStopDate.TabIndex = 0;
             // 
             // label14
             // 
@@ -208,12 +250,13 @@ namespace vEquip
             this.label14.TabIndex = 1;
             this.label14.Text = "종료시간";
             // 
-            // dtStart
+            // dtStartDate
             // 
-            this.dtStart.Location = new System.Drawing.Point(79, 35);
-            this.dtStart.Name = "dtStart";
-            this.dtStart.Size = new System.Drawing.Size(223, 21);
-            this.dtStart.TabIndex = 0;
+            this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtStartDate.Location = new System.Drawing.Point(79, 35);
+            this.dtStartDate.Name = "dtStartDate";
+            this.dtStartDate.Size = new System.Drawing.Size(91, 21);
+            this.dtStartDate.TabIndex = 0;
             // 
             // label13
             // 
@@ -506,45 +549,27 @@ namespace vEquip
             this.tbMonitor.Size = new System.Drawing.Size(326, 409);
             this.tbMonitor.TabIndex = 0;
             // 
-            // mnuConfig
-            // 
-            this.mnuConfig.Name = "mnuConfig";
-            this.mnuConfig.Size = new System.Drawing.Size(55, 20);
-            this.mnuConfig.Text = "Config";
-            // 
-            // mnuHelp
-            // 
-            this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(44, 20);
-            this.mnuHelp.Text = "Help";
-            // 
-            // mnuFileStart
-            // 
-            this.mnuFileStart.Name = "mnuFileStart";
-            this.mnuFileStart.Size = new System.Drawing.Size(180, 22);
-            this.mnuFileStart.Text = "Start";
-            this.mnuFileStart.Click += new System.EventHandler(this.mnuFileStart_Click);
-            // 
-            // mnuFileStop
-            // 
-            this.mnuFileStop.Name = "mnuFileStop";
-            this.mnuFileStop.Size = new System.Drawing.Size(180, 22);
-            this.mnuFileStop.Text = "Stop";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // mnuFileExit
-            // 
-            this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(180, 22);
-            this.mnuFileExit.Text = "Exit";
-            // 
             // timer
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // dtStartTime
+            // 
+            this.dtStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtStartTime.Location = new System.Drawing.Point(176, 35);
+            this.dtStartTime.Name = "dtStartTime";
+            this.dtStartTime.ShowUpDown = true;
+            this.dtStartTime.Size = new System.Drawing.Size(125, 21);
+            this.dtStartTime.TabIndex = 3;
+            // 
+            // dtStopTime
+            // 
+            this.dtStopTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtStopTime.Location = new System.Drawing.Point(176, 64);
+            this.dtStopTime.Name = "dtStopTime";
+            this.dtStopTime.ShowUpDown = true;
+            this.dtStopTime.Size = new System.Drawing.Size(125, 21);
+            this.dtStopTime.TabIndex = 4;
             // 
             // Main
             // 
@@ -557,6 +582,7 @@ namespace vEquip
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Emulator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
@@ -615,9 +641,9 @@ namespace vEquip
         private System.Windows.Forms.Label tbEnvAir1;
         private System.Windows.Forms.TextBox tbEnvWind;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DateTimePicker dtStop;
+        private System.Windows.Forms.DateTimePicker dtStopDate;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DateTimePicker dtStart;
+        private System.Windows.Forms.DateTimePicker dtStartDate;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbInterval;
         private System.Windows.Forms.Label label15;
@@ -632,6 +658,8 @@ namespace vEquip
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mnuFileExit;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.DateTimePicker dtStartTime;
+        private System.Windows.Forms.DateTimePicker dtStopTime;
     }
 }
 

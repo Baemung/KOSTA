@@ -24,31 +24,33 @@ namespace vEquip
 
         private void Main_Load(object sender, EventArgs e)
         {
-            tbEqCode.Text  = ini.GetString("Equipment", "EqCode",  "00001");
+            tbEqCode.Text  = ini.GetString("Equipment", "EqCode",  "00000");
             tbEqModel.Text = ini.GetString("Equipment", "EqModel", "000000");
-            tbEqLine.Text  = ini.GetString("Equipment", "EqLine",  "00001");
-            tbEqBat.Text   = ini.GetString("Equipment", "EqBat",   "00001");
-            tbEqState.Text = ini.GetString("Equipment", "EqState", "00001");
-            tbEqCount.Text = ini.GetString("Equipment", "EqCount", "00001");
+            tbEqLine.Text  = ini.GetString("Equipment", "EqLine",  "00000");
+            tbEqBat.Text   = ini.GetString("Equipment", "EqBat",   "00000");
+            tbEqState.Text = ini.GetString("Equipment", "EqState", "0");
+            tbEqCount.Text = ini.GetString("Equipment", "EqCount", "00000");
 
-            tbEnvTemp.Text  = ini.GetString("Enviroment", "EnvTemp",  "00001");
-            tbEnvHum.Text   = ini.GetString("Enviroment", "EnvHum",   "000000");
-            tbEnvWind.Text  = ini.GetString("Enviroment", "EnvWind",  "00001");
-            tbEnvOz.Text    = ini.GetString("Enviroment", "EnvOz",    "00001");
-            tbEnvAir.Text   = ini.GetString("Enviroment", "EnvAir",   "00001");
-            tbEnvTotal.Text = ini.GetString("Enviroment", "EnvTotal", "00001");
+            tbEnvTemp.Text  = ini.GetString("Enviroment", "EnvTemp",  "0000");
+            tbEnvHum.Text   = ini.GetString("Enviroment", "EnvHum",   "0000");
+            tbEnvWind.Text  = ini.GetString("Enviroment", "EnvWind",  "0000");
+            tbEnvOz.Text    = ini.GetString("Enviroment", "EnvOz",    "0000");
+            tbEnvAir.Text   = ini.GetString("Enviroment", "EnvAir",   "0");
+            tbEnvTotal.Text = ini.GetString("Enviroment", "EnvTotal", "0000");
 
-            dtStart.Value = new DateTime(long.Parse(ini.GetString("Operation", "StartTime", "0")));
-            dtStop.Value = new DateTime(long.Parse(ini.GetString("Operation", "StopTime", "0")));
-            tbInterval.Text = ini.GetString("Operation", "Interval", "5");
+            dtStartDate.Value = new DateTime(long.Parse(ini.GetString("Operation", "StartDate", "0")));
+            dtStopDate.Value = new DateTime(long.Parse(ini.GetString("Operation", "StopDate", "0")));
+            dtStartTime.Value = new DateTime(long.Parse(ini.GetString("Operation", "StartTime", "0")));
+            dtStopTime.Value = new DateTime(long.Parse(ini.GetString("Operation", "StopTime", "0")));
+            tbInterval.Text = ini.GetString("Operation", "Interval", "2");
 
             int x1, x2, y1, y2;
 
             sblabel1.Text = ini.GetString("Server", "IP",   "127.0.0.1");
             sblabel2.Text = ini.GetString("Server", "Port", "9001");
 
-            x1 = int.Parse(ini.GetString("Form", "LocationX", "0"));
-            y1 = int.Parse(ini.GetString("Form", "LocationY", "0"));
+            x1 = int.Parse(ini.GetString("Form", "LocationX", "600"));
+            y1 = int.Parse(ini.GetString("Form", "LocationY", "300"));
             this.Location = new Point(x1, y1);
 
             x2 = int.Parse(ini.GetString("Form", "SizeX", "700"));
@@ -74,8 +76,10 @@ namespace vEquip
             ini.SetString("Enviroment", "EnvAir",   tbEnvAir.Text  );
             ini.SetString("Enviroment", "EnvTotal", tbEnvTotal.Text);
 
-            ini.SetString("Operation", "StartTime", dtStart.Value.Ticks.ToString());
-            ini.SetString("Operation", "StopTime",  dtStop.Value.Ticks.ToString());
+            ini.SetString("Operation", "StartDate", dtStartDate.Value.Ticks.ToString());
+            ini.SetString("Operation", "StopDate",  dtStopDate.Value.Ticks.ToString());
+            ini.SetString("Operation", "StartTime", dtStartTime.Value.Ticks.ToString());
+            ini.SetString("Operation", "StopTime", dtStopTime.Value.Ticks.ToString());
             ini.SetString("Operation", "Interval",  tbInterval.Text);
 
             ini.SetString("Server", "IP", sblabel1.Text);
@@ -134,6 +138,63 @@ namespace vEquip
             }   
         }
 
+        bool CheckInTime()
+        {
+            DateTime dt = DateTime.Now;
+            DateTime st = dtStartDate.Value.Date + dtStartTime.Value.TimeOfDay;
+            DateTime et = dtStopDate.Value.Date + dtStopTime.Value.TimeOfDay;
+
+            return dt > st && dt < et;
+        }
+
+        void SetRandomValue()
+        {
+            Random r = new Random();
+            tbEnvTemp.Text = $"{r.Next(0, 99)}";
+            tbEnvHum.Text = $"{r.Next(0, 99)}";
+            tbEnvWind.Text = $"{r.Next(0, 99)}";
+            tbEnvOz.Text = $"{r.Next(0, 99)}";
+        }
+
+        private void sblabel1_Click(object sender, EventArgs e)
+        {
+            string str = jslib.GetInput("IP Address");
+            if (str != "") sblabel1.Text = str;
+        }
+
+        private void sblabel2_Click(object sender, EventArgs e)
+        {
+            string str = jslib.GetInput("Port");
+            if (str != "") sblabel2.Text = str;
+        }
+
+        char STX = '\u0002';
+        char ETX = '\u0003';
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            timer.Stop();
+            if (CheckInTime())
+            {
+                SetRandomValue();
+                // Package 구성 : 패킷의 전후에 [02]STX [03]ETX 문자를 덧붙인다.
+                string str = $"{STX}";
+                str       += $"{tbEqCode.Text,5}{tbEqModel.Text, 6}{tbEqLine.Text, 5}{float.Parse(tbEqBat.Text), 5:F2}";
+                str       += $"{tbEqState.Text,1}{int.Parse(tbEqCount.Text):D5}";
+                str       += $"{int.Parse(tbEnvAir.Text):D4}{int.Parse(tbEnvHum.Text):D4}{int.Parse(tbEnvOz.Text):D4}";
+                str       += $"{int.Parse(tbEnvTemp.Text):D4}{int.Parse(tbEnvWind.Text):D4}{int.Parse(tbEnvTotal.Text):D4}";
+                str       += $"{ETX}";
+
+                byte[] ba = Encoding.Default.GetBytes(str);
+                if (IsAlive(sock))
+                {
+                    sock.Send(ba);
+                    tbEqCount.Text = $"{int.Parse(tbEqCount.Text) + 1}";
+                }
+            } 
+            timer.Start();
+        }
+
         private void mnuFileStart_Click(object sender, EventArgs e) // 처음 수행 시
         {
             if (sock != null) sock.Close(); // Re-Start
@@ -155,33 +216,12 @@ namespace vEquip
             }
         }
 
-        private void sblabel1_Click(object sender, EventArgs e)
-        {
-            string str = jslib.GetInput("IP Address");
-            if (str != "") sblabel1.Text = str;
-        }
-
-        private void sblabel2_Click(object sender, EventArgs e)
-        {
-            string str = jslib.GetInput("Port");
-            if (str != "") sblabel2.Text = str;
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
+        private void mnuFileStop_Click(object sender, EventArgs e)
         {
             timer.Stop();
 
-            string str = tbEqCode.Text + tbEqModel.Text + tbEqLine.Text + tbEqBat.Text + tbEqState.Text + tbEqCount.Text + 
-                         tbEnvAir.Text + tbEnvHum.Text + tbEnvOz.Text + tbEnvTemp.Text + tbEnvWind.Text + tbEnvTotal.Text;
-            byte[] ba = Encoding.Default.GetBytes(str);
-            if (IsAlive(sock))
-            {
-                sock.Send(ba);
-                tbEqCount.Text = $"{int.Parse(tbEqCount.Text) + 1}";
-            }
-            // Package 구성 : 패킷의 전후에 [02]STX [03]ETX 문자를 덧붙인다.
-
-            timer.Start();
+            if (sock != null) sock = null;
+            if (threadRead != null) threadRead = null;
         }
     }
 }
