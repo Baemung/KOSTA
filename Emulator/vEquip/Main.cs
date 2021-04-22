@@ -24,12 +24,12 @@ namespace vEquip
 
         private void Main_Load(object sender, EventArgs e)
         {
-            tbEqCode.Text  = ini.GetString("Equipment", "EqCode",  "00000");
-            tbEqModel.Text = ini.GetString("Equipment", "EqModel", "000000");
-            tbEqLine.Text  = ini.GetString("Equipment", "EqLine",  "00000");
-            tbEqBat.Text   = ini.GetString("Equipment", "EqBat",   "00000");
+            tbEqCode.Text  = ini.GetString("Equipment", "EqCode",  "00001");
+            tbEqModel.Text = ini.GetString("Equipment", "EqModel", "000001");
+            tbEqLine.Text  = ini.GetString("Equipment", "EqLine",  "00001");
+            tbEqBat.Text   = ini.GetString("Equipment", "EqBat",   "00001");
             tbEqState.Text = ini.GetString("Equipment", "EqState", "0");
-            tbEqCount.Text = ini.GetString("Equipment", "EqCount", "00000");
+            tbEqCount.Text = ini.GetString("Equipment", "EqCount", "0");
 
             tbEnvTemp.Text  = ini.GetString("Enviroment", "EnvTemp",  "0000");
             tbEnvHum.Text   = ini.GetString("Enviroment", "EnvHum",   "0000");
@@ -181,8 +181,8 @@ namespace vEquip
                 string str = $"{STX}";
                 str       += $"{tbEqCode.Text,5}{tbEqModel.Text, 6}{tbEqLine.Text, 5}{float.Parse(tbEqBat.Text), 5:F2}";
                 str       += $"{tbEqState.Text,1}{int.Parse(tbEqCount.Text):D5}";
-                str       += $"{int.Parse(tbEnvAir.Text):D4}{int.Parse(tbEnvHum.Text):D4}{int.Parse(tbEnvOz.Text):D4}";
-                str       += $"{int.Parse(tbEnvTemp.Text):D4}{int.Parse(tbEnvWind.Text):D4}{int.Parse(tbEnvTotal.Text):D4}";
+                str       += $"{int.Parse(tbEnvTemp.Text):D4}{int.Parse(tbEnvHum.Text):D4}{int.Parse(tbEnvWind.Text):D4}";
+                str       += $"{int.Parse(tbEnvOz.Text):D4}{int.Parse(tbEnvAir.Text):D1}{int.Parse(tbEnvTotal.Text):D4}";
                 str       += $"{ETX}";
 
                 byte[] ba = Encoding.Default.GetBytes(str);

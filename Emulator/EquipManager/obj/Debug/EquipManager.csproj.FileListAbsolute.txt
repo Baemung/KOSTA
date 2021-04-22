@@ -1,0 +1,12 @@
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\bin\Debug\EquipManager.exe.config
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\bin\Debug\EquipManager.exe
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\bin\Debug\EquipManager.pdb
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\obj\Debug\EquipManager.csprojAssemblyReference.cache
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\obj\Debug\EquipManager.Manager.resources
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\obj\Debug\EquipManager.Properties.Resources.resources
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\obj\Debug\EquipManager.csproj.GenerateResource.cache
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\obj\Debug\EquipManager.csproj.CoreCompileInputs.cache
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\obj\Debug\EquipManager.exe
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\obj\Debug\EquipManager.pdb
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\bin\Debug\jsLibrary.dll
+C:\Users\anvo9\KOSTA\Emulator\EquipManager\obj\Debug\EquipManager.csproj.CopyComplete

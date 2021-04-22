@@ -45,6 +45,8 @@ namespace vEquip
             this.sblabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtStopTime = new System.Windows.Forms.DateTimePicker();
+            this.dtStartTime = new System.Windows.Forms.DateTimePicker();
             this.dtStopDate = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.dtStartDate = new System.Windows.Forms.DateTimePicker();
@@ -80,8 +82,6 @@ namespace vEquip
             this.label1 = new System.Windows.Forms.Label();
             this.tbMonitor = new System.Windows.Forms.TextBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.dtStartTime = new System.Windows.Forms.DateTimePicker();
-            this.dtStopTime = new System.Windows.Forms.DateTimePicker();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -121,26 +121,26 @@ namespace vEquip
             // mnuFileStart
             // 
             this.mnuFileStart.Name = "mnuFileStart";
-            this.mnuFileStart.Size = new System.Drawing.Size(180, 22);
+            this.mnuFileStart.Size = new System.Drawing.Size(99, 22);
             this.mnuFileStart.Text = "Start";
             this.mnuFileStart.Click += new System.EventHandler(this.mnuFileStart_Click);
             // 
             // mnuFileStop
             // 
             this.mnuFileStop.Name = "mnuFileStop";
-            this.mnuFileStop.Size = new System.Drawing.Size(180, 22);
+            this.mnuFileStop.Size = new System.Drawing.Size(99, 22);
             this.mnuFileStop.Text = "Stop";
             this.mnuFileStop.Click += new System.EventHandler(this.mnuFileStop_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(96, 6);
             // 
             // mnuFileExit
             // 
             this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(180, 22);
+            this.mnuFileExit.Size = new System.Drawing.Size(99, 22);
             this.mnuFileExit.Text = "Exit";
             // 
             // mnuEdit
@@ -233,6 +233,25 @@ namespace vEquip
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "가동정보";
             // 
+            // dtStopTime
+            // 
+            this.dtStopTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtStopTime.Location = new System.Drawing.Point(176, 64);
+            this.dtStopTime.Name = "dtStopTime";
+            this.dtStopTime.ShowUpDown = true;
+            this.dtStopTime.Size = new System.Drawing.Size(125, 21);
+            this.dtStopTime.TabIndex = 4;
+            // 
+            // dtStartTime
+            // 
+            this.dtStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtStartTime.Location = new System.Drawing.Point(176, 35);
+            this.dtStartTime.Name = "dtStartTime";
+            this.dtStartTime.ShowUpDown = true;
+            this.dtStartTime.Size = new System.Drawing.Size(125, 21);
+            this.dtStartTime.TabIndex = 3;
+            this.dtStartTime.Value = new System.DateTime(2021, 4, 1, 0, 0, 0, 0);
+            // 
             // dtStopDate
             // 
             this.dtStopDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -240,6 +259,7 @@ namespace vEquip
             this.dtStopDate.Name = "dtStopDate";
             this.dtStopDate.Size = new System.Drawing.Size(91, 21);
             this.dtStopDate.TabIndex = 0;
+            this.dtStopDate.Value = new System.DateTime(2021, 7, 1, 0, 0, 0, 0);
             // 
             // label14
             // 
@@ -257,6 +277,7 @@ namespace vEquip
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(91, 21);
             this.dtStartDate.TabIndex = 0;
+            this.dtStartDate.Value = new System.DateTime(2021, 4, 1, 0, 0, 0, 0);
             // 
             // label13
             // 
@@ -552,24 +573,6 @@ namespace vEquip
             // timer
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // dtStartTime
-            // 
-            this.dtStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtStartTime.Location = new System.Drawing.Point(176, 35);
-            this.dtStartTime.Name = "dtStartTime";
-            this.dtStartTime.ShowUpDown = true;
-            this.dtStartTime.Size = new System.Drawing.Size(125, 21);
-            this.dtStartTime.TabIndex = 3;
-            // 
-            // dtStopTime
-            // 
-            this.dtStopTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtStopTime.Location = new System.Drawing.Point(176, 64);
-            this.dtStopTime.Name = "dtStopTime";
-            this.dtStopTime.ShowUpDown = true;
-            this.dtStopTime.Size = new System.Drawing.Size(125, 21);
-            this.dtStopTime.TabIndex = 4;
             // 
             // Main
             // 
