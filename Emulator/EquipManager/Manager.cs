@@ -97,14 +97,40 @@ namespace EquipManager
             AddText(sk.RemoteEndPoint.ToString() + "  >  "); // 127.0.0.1:12345 ==> 줄바꿈 없음.
             AddText($"{sCode} {sModel} {sLine} {sBat} {sState} {sCount} {sTemp} {sHum} {sWind} {sOz} {sAir} {sTotal}\r\n");
 
-            string sql = $"insert into fStatus values ('{sCode}','{sModel}','{sLine}','{sBat}','{sState}','{sCount}','{sTemp}','{sHum}','{sWind}','{sOz}','{sAir}','{sTotal}',getdate())";
+            string sql = $"select count(*) from fStatus where fCode={sCode}";
+            DataTable dt = (DataTable)RunSQL(sql);
+            int n = (int)dt.Rows[0].Field<object>(0);
+            //int n = (int)cmd.ExecuteScalar();
+            // 기존에 데이터가 존재 하지 않으면 추가, 존재 하면 업데이트
+            if (n == 0)
+            {
+                sql = $"insert into fStatus values ('{sCode}','{sModel}','{sLine}','{sBat}','{sState}','{sCount}','{sTemp}','{sHum}','{sWind}','{sOz}','{sAir}','{sTotal}',getdate())";
+            }
+            else
+            {
+                sql = $"update fStatus set fModel='{sModel}',fLine='{sLine}',fBat='{sBat}',fState='{sState}',fCount='{sCount}'," +
+                    $"fTemp='{sTemp}',fHum='{sHum}',fWind='{sWind}',fOz='{sOz}',fAir='{sAir}',fTotal='{sTotal}',fTime=getdate() " +
+                    $"select top 1* from fStatus where fcode='{sCode}' order by fTime desc";
+            }
             RunSQL(sql);
          }
 
-        void RunSQL(string SQL)
+        object RunSQL(string SQL)
         {
             cmd.CommandText = SQL;
-            cmd.ExecuteNonQuery();
+            if (jslib.GetToken(0, SQL.Trim(), ' ').ToUpper() == "SELECT")
+            {
+                SqlDataReader sr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(sr);
+                sr.Close();
+
+                return dt;
+            }
+            else
+            {
+                return cmd.ExecuteNonQuery();
+            }
         }
 
         bool IsAlive(Socket sk)
@@ -159,6 +185,10 @@ namespace EquipManager
             conn.ConnectionString = connString;
             conn.Open();
             cmd.Connection = conn;
+
+            dataGrid.DataSource = RunSQL("select * from fStatus");
+            timer.Interval = int.Parse(tbInterval.Text);
+            timer.Start();
         }
 
         private void Manager_FormClosing(object sender, FormClosingEventArgs e)
@@ -173,6 +203,26 @@ namespace EquipManager
             ini.SetString("Form", "SizeY", $"{Size.Height}");
             ini.SetString("Form", "TabIndex", $"{tabControl.SelectedIndex}");
             ini.SetString("Database", "ConnectionString", connString);
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRef_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            dataGrid.DataSource = RunSQL("select * from fStatus");
         }
     }
 }
