@@ -1,3 +1,0 @@
-C:\Users\anvo9\KOSTA\IoT216-2\obj\Debug\ChatSocket.csprojAssemblyReference.cache
-C:\Users\anvo9\KOSTA\IoT216-2\obj\Debug\ChatSocket.frmSocket.resources
-C:\Users\anvo9\KOSTA\IoT216-2\obj\Debug\ChatSocket.csproj.GenerateResource.cache
