@@ -42,7 +42,7 @@ namespace Basic.Controllers
 
             if(uid != null)
             {
-                SQLDB db = new SQLDB(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\KOSTA\Desktop\KOSTA\Cs\ASP.NET\ASP_DB.mdf;Integrated Security=True;Connect Timeout=30");
+                SQLDB db = new SQLDB(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Baemung\Documents\KOSTA\Cs\ASP.NET\ASP_DB.mdf;Integrated Security=True;Connect Timeout=30");
                 if (db.Get($"select password from users where uid = '{uid}'").ToString().Trim() == UsersController.GetEncrypt(pwd))
                 {
                     Session["uid"] = uid;
