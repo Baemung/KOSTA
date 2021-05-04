@@ -1,8 +1,0 @@
-C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\MyClassLibrary\bin\Debug\netcoreapp3.1\MyClassLibrary.deps.json
-C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\MyClassLibrary\bin\Debug\netcoreapp3.1\MyClassLibrary.dll
-C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\MyClassLibrary\bin\Debug\netcoreapp3.1\MyClassLibrary.pdb
-C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\MyClassLibrary\obj\Debug\netcoreapp3.1\MyClassLibrary.AssemblyInfoInputs.cache
-C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\MyClassLibrary\obj\Debug\netcoreapp3.1\MyClassLibrary.AssemblyInfo.cs
-C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\MyClassLibrary\obj\Debug\netcoreapp3.1\MyClassLibrary.csproj.CoreCompileInputs.cache
-C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\MyClassLibrary\obj\Debug\netcoreapp3.1\MyClassLibrary.dll
-C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\MyClassLibrary\obj\Debug\netcoreapp3.1\MyClassLibrary.pdb

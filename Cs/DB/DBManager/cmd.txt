@@ -1,3 +1,0 @@
-select * from testtable,fstatus
-select * from testtable
-select * from fstatus

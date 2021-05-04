@@ -1,0 +1,10 @@
+C:\Users\KOSTA\Desktop\KOSTA\DB\WindowsFormsDBManager\bin\Debug\WindowsFormsDBManager.exe.config
+C:\Users\KOSTA\Desktop\KOSTA\DB\WindowsFormsDBManager\bin\Debug\WindowsFormsDBManager.exe
+C:\Users\KOSTA\Desktop\KOSTA\DB\WindowsFormsDBManager\bin\Debug\WindowsFormsDBManager.pdb
+C:\Users\KOSTA\Desktop\KOSTA\DB\WindowsFormsDBManager\obj\Debug\WindowsFormsDBManager.csprojAssemblyReference.cache
+C:\Users\KOSTA\Desktop\KOSTA\DB\WindowsFormsDBManager\obj\Debug\WindowsFormsDBManager.Form1.resources
+C:\Users\KOSTA\Desktop\KOSTA\DB\WindowsFormsDBManager\obj\Debug\WindowsFormsDBManager.Properties.Resources.resources
+C:\Users\KOSTA\Desktop\KOSTA\DB\WindowsFormsDBManager\obj\Debug\WindowsFormsDBManager.csproj.GenerateResource.cache
+C:\Users\KOSTA\Desktop\KOSTA\DB\WindowsFormsDBManager\obj\Debug\WindowsFormsDBManager.csproj.CoreCompileInputs.cache
+C:\Users\KOSTA\Desktop\KOSTA\DB\WindowsFormsDBManager\obj\Debug\WindowsFormsDBManager.exe
+C:\Users\KOSTA\Desktop\KOSTA\DB\WindowsFormsDBManager\obj\Debug\WindowsFormsDBManager.pdb
