@@ -50,9 +50,6 @@ namespace DBManager
             sr.Close();
         }
 
-        SqlConnection sqlConn = new SqlConnection();
-        SqlCommand sqlCmd = new SqlCommand();
-
         private void mnuFileOpendb_Click(object sender, EventArgs e)
         {
             //DB File Open

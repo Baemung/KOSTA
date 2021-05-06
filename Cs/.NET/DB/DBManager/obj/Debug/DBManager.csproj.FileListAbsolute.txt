@@ -11,3 +11,13 @@ C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\obj\Debug\DBManager.csprojAssemblyRefe
 C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\obj\Debug\DBManager.addCol.resources
 C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\obj\Debug\DBManager.input.resources
 C:\Users\KOSTA\Desktop\KOSTA\DB\DBManager\obj\Debug\DBManager.title.resources
+C:\Users\Baemung\Documents\KOSTA\Cs\.NET\DB\DBManager\obj\Debug\DBManager.csprojAssemblyReference.cache
+C:\Users\Baemung\Documents\KOSTA\Cs\.NET\DB\DBManager\obj\Debug\DBManager.addCol.resources
+C:\Users\Baemung\Documents\KOSTA\Cs\.NET\DB\DBManager\obj\Debug\DBManager.DBManager.resources
+C:\Users\Baemung\Documents\KOSTA\Cs\.NET\DB\DBManager\obj\Debug\DBManager.input.resources
+C:\Users\Baemung\Documents\KOSTA\Cs\.NET\DB\DBManager\obj\Debug\DBManager.Properties.Resources.resources
+C:\Users\Baemung\Documents\KOSTA\Cs\.NET\DB\DBManager\obj\Debug\DBManager.title.resources
+C:\Users\Baemung\Documents\KOSTA\Cs\.NET\DB\DBManager\obj\Debug\DBManager.csproj.GenerateResource.cache
+C:\Users\Baemung\Documents\KOSTA\Cs\.NET\DB\DBManager\obj\Debug\DBManager.csproj.CoreCompileInputs.cache
+C:\Users\Baemung\Documents\KOSTA\Cs\.NET\DB\DBManager\obj\Debug\DBManager.exe
+C:\Users\Baemung\Documents\KOSTA\Cs\.NET\DB\DBManager\obj\Debug\DBManager.pdb
