@@ -1,0 +1,13 @@
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\bin\Debug\chatUDP.exe.config
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\bin\Debug\chatUDP.exe
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\bin\Debug\chatUDP.pdb
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\bin\Debug\jsLibrary.dll
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\bin\Debug\jsLibrary.pdb
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\obj\Debug\chatUDP.csprojAssemblyReference.cache
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\obj\Debug\chatUDP.frmUDP.resources
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\obj\Debug\chatUDP.Properties.Resources.resources
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\obj\Debug\chatUDP.csproj.GenerateResource.cache
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\obj\Debug\chatUDP.csproj.CoreCompileInputs.cache
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\obj\Debug\chatUDP.csproj.CopyComplete
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\obj\Debug\chatUDP.exe
+C:\Users\KOSTA\Downloads\IoT216-main (5)\IoT216-main\UDPchat\obj\Debug\chatUDP.pdb
